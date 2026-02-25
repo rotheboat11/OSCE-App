@@ -1,0 +1,116 @@
+:root {
+  --min-bg: #eef3fb;
+  --min-panel: #ffffff;
+  --min-line: #cfdaeb;
+  --min-ink: #162234;
+  --min-muted: #657385;
+  --min-accent: #0e4ca3;
+  --scan-accent: #2f7be6;
+  --scan-tint: #f4f8ff;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 90% 8%, rgba(47, 123, 230, 0.12), transparent 42%),
+    var(--min-bg);
+  color: var(--min-ink);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #10315b, #134982);
+}
+
+.minimal-shell {
+  width: min(1060px, 93vw);
+  margin: 1.2rem auto 2.2rem;
+}
+
+.minimal-head {
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid var(--min-line);
+}
+
+.minimal-head h1 {
+  margin: 0;
+  font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+
+.minimal-head p {
+  margin: 0.35rem 0 0;
+  color: var(--min-muted);
+}
+
+.minimal-search {
+  margin-top: 1rem;
+  background: var(--min-panel);
+  border: 1px solid var(--min-line);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+.minimal-search .form-label {
+  font-weight: 700;
+}
+
+.minimal-search .form-control {
+  border: 1px solid #cbd6e2;
+}
+
+.minimal-search .form-control:focus {
+  border-color: var(--min-accent);
+  box-shadow: 0 0 0 0.2rem rgba(14, 76, 163, 0.15);
+}
+
+.minimal-search .form-text {
+  color: var(--min-muted);
+}
+
+.minimal-list {
+  margin-top: 0.9rem;
+}
+
+.minimal-list .exam-card {
+  border: 1px solid #c2d4ee;
+  border-radius: 14px;
+  background: linear-gradient(165deg, var(--min-panel), var(--scan-tint));
+  box-shadow: 0 6px 14px rgba(22, 34, 52, 0.08);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+.minimal-list .exam-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 28px rgba(22, 34, 52, 0.15);
+  border-color: #85ace0;
+}
+
+.minimal-list .card-title {
+  color: #1a2c44;
+}
+
+.minimal-list .card-text {
+  color: #607289;
+}
+
+.minimal-list .anatomy-image {
+  border-color: #bad0eb;
+  background: #f8fbff;
+}
+
+.minimal-list .btn-primary {
+  background: var(--scan-accent);
+  border-color: var(--scan-accent);
+}
+
+.minimal-list .btn-outline-primary {
+  color: var(--scan-accent);
+  border-color: #98b9e8;
+}
+
+.minimal-list .btn-outline-primary:hover {
+  color: #fff;
+  background: var(--scan-accent);
+  border-color: var(--scan-accent);
+}

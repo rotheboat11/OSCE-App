@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Clinical Exam Atlas</title>
+  <style>
+    :root {
+      --bg-deep: #071224;
+      --bg-mid: #102747;
+      --ink: #f6f8ff;
+      --ink-soft: #c8d3e8;
+      --accent: #39d2c0;
+      --accent-2: #f2b641;
+      --panel: rgba(255, 255, 255, 0.08);
+      --panel-border: rgba(255, 255, 255, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Trebuchet MS", "Avenir Next", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(1200px 600px at 85% 15%, rgba(57, 210, 192, 0.25), transparent 60%),
+        radial-gradient(900px 500px at 10% 95%, rgba(242, 182, 65, 0.22), transparent 60%),
+        linear-gradient(135deg, var(--bg-deep), var(--bg-mid));
+      overflow-x: hidden;
+    }
+
+    .wrap {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+      padding: 2.5rem 0 3rem;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 3rem;
+    }
+
+    .brand {
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+    }
+
+    .tag {
+      border: 1px solid var(--panel-border);
+      background: var(--panel);
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2rem;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+      font-size: clamp(2rem, 4.8vw, 4rem);
+      line-height: 1.05;
+      letter-spacing: 0.01em;
+    }
+
+    .lead {
+      margin-top: 1rem;
+      margin-bottom: 1.75rem;
+      color: var(--ink-soft);
+      max-width: 60ch;
+      font-size: 1.08rem;
+      line-height: 1.5;
+    }
+
+    .btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 0.7rem;
+      padding: 0.8rem 1.1rem;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background-color 0.18s ease;
+    }
+
+    .btn-primary {
+      color: #032f2a;
+      background: var(--accent);
+      box-shadow: 0 8px 18px rgba(57, 210, 192, 0.35);
+    }
+
+    .btn-secondary {
+      color: var(--ink);
+      border: 1px solid var(--panel-border);
+      background: var(--panel);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-card {
+      border: 1px solid var(--panel-border);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.05));
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 20px 36px rgba(0, 0, 0, 0.28);
+      animation: drift 7s ease-in-out infinite;
+    }
+
+    .hero-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-card .caption {
+      padding: 0.85rem 1rem;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+    }
+
+    .systems {
+      margin-top: 2rem;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .system {
+      border: 1px solid var(--panel-border);
+      border-radius: 0.9rem;
+      padding: 0.95rem;
+      background: var(--panel);
+      backdrop-filter: blur(6px);
+      min-height: 120px;
+      animation: reveal 0.5s ease both;
+    }
+
+    .system:nth-child(2) { animation-delay: 0.07s; }
+    .system:nth-child(3) { animation-delay: 0.14s; }
+    .system:nth-child(4) { animation-delay: 0.21s; }
+
+    .system h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1rem;
+    }
+
+    .system p {
+      margin: 0;
+      color: var(--ink-soft);
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+
+    .system.active {
+      outline: 2px solid rgba(57, 210, 192, 0.45);
+    }
+
+    .foot {
+      margin-top: 1.4rem;
+      color: var(--ink-soft);
+      font-size: 0.85rem;
+      opacity: 0.9;
+    }
+
+    @keyframes reveal {
+      from { opacity: 0; transform: translateY(7px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+      .hero-card img {
+        height: 210px;
+      }
+      .systems {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 2.2rem;
+      }
+      .systems {
+        grid-template-columns: 1fr;
+      }
+      .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div class="brand">Clinical Exam Atlas</div>
+      <div class="tag">Built for practical exam prep</div>
+    </header>
+
+    <main class="hero">
+      <section>
+        <h1>One place for every system-focused physical exam.</h1>
+        <p class="lead">
+          Start with MSK now, then grow into a full exam library across organ systems.
+          Structured checklists, high-yield maneuvers, and rapid practice in one interface.
+        </p>
+        <div class="btns">
+          <a class="btn btn-primary" href="msk.html">Enter MSK Module</a>
+          <a class="btn btn-secondary" href="quiz.html?exam=shoulder">Try a Sample Quiz</a>
+        </div>
+      </section>
+
+      <aside class="hero-card">
+        <img src="static/Skeleton.jpg" alt="MSK anatomy illustration" />
+        <div class="caption">Current live module: Musculoskeletal examination.</div>
+      </aside>
+    </main>
+
+    <section class="systems">
+      <article class="system active">
+        <h3>MSK</h3>
+        <p>Joint-by-joint exam flows, special tests, and neuro components.</p>
+      </article>
+      <article class="system">
+        <h3>Cardiovascular</h3>
+        <p>Inspection, pulse and pressure exam flow, and key auscultation landmarks.</p>
+      </article>
+      <article class="system">
+        <h3>Respiratory</h3>
+        <p>Breathing pattern assessment, percussion mapping, and focused auscultation.</p>
+      </article>
+      <article class="system">
+        <h3>Neurologic</h3>
+        <p>Cranial nerves, motor-sensory exam, reflexes, gait, and localization clues.</p>
+      </article>
+    </section>
+
+    <p class="foot">This is now the default entry page. Use the title screen from any module to navigate quickly.</p>
+  </div>
+</body>
+</html>
