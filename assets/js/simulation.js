@@ -23,6 +23,7 @@ let currentRegion = "shoulder";
 let activeTestIndex = null;
 let activeVideoEl = null;
 let activeModelEl = null;
+let activeModelStopTimer = null;
 
 function testDisplayName(test) {
   if (typeof test === "string") return test;
@@ -46,6 +47,10 @@ function normalizeTestName(name) {
 }
 
 function clearViewport() {
+  if (activeModelStopTimer) {
+    window.clearTimeout(activeModelStopTimer);
+    activeModelStopTimer = null;
+  }
   if (activeModelEl) {
     if (typeof activeModelEl.pause === "function") {
       activeModelEl.pause();
@@ -158,17 +163,19 @@ function showEmptyCanModel() {
   model.className = "sim-model-viewer";
   model.setAttribute("src", "animations/empty-can.glb");
   model.setAttribute("alt", "Empty Can 3D animation");
-  model.setAttribute("camera-orbit", "92deg 82deg 2.9m");
+  model.setAttribute("orientation", "0deg 90deg 0deg");
+  model.setAttribute("camera-orbit", "90deg 80deg 3.1m");
   model.setAttribute("camera-target", "0m 1.1m 0m");
   model.setAttribute("field-of-view", "24deg");
   model.setAttribute("interaction-prompt", "none");
   model.setAttribute("shadow-intensity", "1");
   model.setAttribute("environment-image", "neutral");
   model.setAttribute("exposure", "1.05");
-  model.setAttribute("min-camera-orbit", "80deg auto auto");
-  model.setAttribute("max-camera-orbit", "104deg auto auto");
+  model.setAttribute("min-camera-orbit", "88deg auto auto");
+  model.setAttribute("max-camera-orbit", "92deg auto auto");
   model.setAttribute("disable-zoom", "");
-  model.autoplay = true;
+  model.setAttribute("interaction-policy", "allow-when-focused");
+  model.autoplay = false;
   model.loop = false;
 
   const caption = document.createElement("div");
@@ -185,10 +192,27 @@ function showEmptyCanModel() {
   const replayBtn = document.createElement("button");
   replayBtn.type = "button";
   replayBtn.className = "sim-replay-btn";
-  replayBtn.textContent = "Replay";
+  replayBtn.textContent = "Play animation";
   replayBtn.disabled = true;
 
+  const stopModelAnimation = () => {
+    if (activeModelStopTimer) {
+      window.clearTimeout(activeModelStopTimer);
+      activeModelStopTimer = null;
+    }
+    if (typeof model.pause === "function") {
+      model.pause();
+    }
+    replayBtn.disabled = false;
+    replayBtn.textContent = "Replay";
+    animHint.textContent = "Empty Can pose loaded. Click Replay to run the animation again.";
+  };
+
   const restartModelAnimation = () => {
+    if (activeModelStopTimer) {
+      window.clearTimeout(activeModelStopTimer);
+      activeModelStopTimer = null;
+    }
     if (typeof model.pause === "function") {
       model.pause();
     }
@@ -199,7 +223,15 @@ function showEmptyCanModel() {
       model.play();
     }
     replayBtn.disabled = true;
+    replayBtn.textContent = "Playing...";
     animHint.textContent = "Playing Blender GLB: Empty Can (Jobe)";
+
+    const durationSeconds = Number(model.duration);
+    if (Number.isFinite(durationSeconds) && durationSeconds > 0) {
+      activeModelStopTimer = window.setTimeout(stopModelAnimation, Math.ceil(durationSeconds * 1000) + 150);
+    } else {
+      activeModelStopTimer = window.setTimeout(stopModelAnimation, 2600);
+    }
   };
 
   model.addEventListener("error", () => {
@@ -209,15 +241,17 @@ function showEmptyCanModel() {
   model.addEventListener("load", () => {
     activeModelEl = model;
     replayBtn.disabled = false;
-    restartModelAnimation();
-  }, { once: true });
-
-  model.addEventListener("finished-iteration", () => {
     if (typeof model.pause === "function") {
       model.pause();
     }
-    replayBtn.disabled = false;
-    animHint.textContent = "Empty Can pose loaded. Click Replay to run the animation again.";
+    if ("currentTime" in model) {
+      model.currentTime = 0;
+    }
+    animHint.textContent = "Empty Can model loaded. Click Play animation when you're ready.";
+  }, { once: true });
+
+  model.addEventListener("finished-iteration", () => {
+    stopModelAnimation();
   });
 
   replayBtn.addEventListener("click", restartModelAnimation);
@@ -229,9 +263,9 @@ function showEmptyCanModel() {
 
   activeVideoEl = null;
   activeModelEl = model;
-  cameraHintEl.textContent = "Imported model";
+  cameraHintEl.textContent = "Side view";
   modelHintEl.textContent = "Side view";
-  animHint.textContent = "Playing Blender GLB: Empty Can (Jobe)";
+  animHint.textContent = "Loading Empty Can model...";
 }
 
 function showGenericTestPreview(testName) {
