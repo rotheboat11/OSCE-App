@@ -151,6 +151,36 @@ body {
   box-shadow: 0 8px 18px rgba(22, 34, 52, 0.16);
 }
 
+.sim-replay-btn {
+  position: absolute;
+  right: 1.25rem;
+  bottom: 1.15rem;
+  padding: 0.55rem 0.95rem;
+  border: 1px solid rgba(205, 222, 247, 0.9);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.94);
+  color: #173a6d;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+  box-shadow: 0 8px 18px rgba(22, 34, 52, 0.12);
+  transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
+}
+
+.sim-replay-btn:hover,
+.sim-replay-btn:focus {
+  background: #ffffff;
+  border-color: #9ebae4;
+  color: #10315b;
+  transform: translateY(-1px);
+}
+
+.sim-replay-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+  transform: none;
+}
+
 .sim-video-overlay {
   position: absolute;
   top: 1.2rem;

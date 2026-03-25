@@ -22,6 +22,7 @@ const modelHintEl = document.getElementById("modelHint");
 let currentRegion = "shoulder";
 let activeTestIndex = null;
 let activeVideoEl = null;
+let activeModelEl = null;
 
 function testDisplayName(test) {
   if (typeof test === "string") return test;
@@ -45,6 +46,12 @@ function normalizeTestName(name) {
 }
 
 function clearViewport() {
+  if (activeModelEl) {
+    if (typeof activeModelEl.pause === "function") {
+      activeModelEl.pause();
+    }
+    activeModelEl = null;
+  }
   if (activeVideoEl) {
     activeVideoEl.pause();
     activeVideoEl.removeAttribute("src");
@@ -151,13 +158,16 @@ function showEmptyCanModel() {
   model.className = "sim-model-viewer";
   model.setAttribute("src", "animations/empty-can.glb");
   model.setAttribute("alt", "Empty Can 3D animation");
-  model.setAttribute("camera-orbit", "0deg 78deg 2.6m");
-  model.setAttribute("camera-target", "0m 1m 0m");
-  model.setAttribute("field-of-view", "28deg");
+  model.setAttribute("camera-orbit", "92deg 82deg 2.9m");
+  model.setAttribute("camera-target", "0m 1.1m 0m");
+  model.setAttribute("field-of-view", "24deg");
   model.setAttribute("interaction-prompt", "none");
   model.setAttribute("shadow-intensity", "1");
   model.setAttribute("environment-image", "neutral");
   model.setAttribute("exposure", "1.05");
+  model.setAttribute("min-camera-orbit", "80deg auto auto");
+  model.setAttribute("max-camera-orbit", "104deg auto auto");
+  model.setAttribute("disable-zoom", "");
   model.autoplay = true;
   model.loop = false;
 
@@ -172,17 +182,55 @@ function showEmptyCanModel() {
     <div class="sim-video-overlay-subtitle">Loaded from your Blender GLB export</div>
   `;
 
+  const replayBtn = document.createElement("button");
+  replayBtn.type = "button";
+  replayBtn.className = "sim-replay-btn";
+  replayBtn.textContent = "Replay";
+  replayBtn.disabled = true;
+
+  const restartModelAnimation = () => {
+    if (typeof model.pause === "function") {
+      model.pause();
+    }
+    if ("currentTime" in model) {
+      model.currentTime = 0;
+    }
+    if (typeof model.play === "function") {
+      model.play();
+    }
+    replayBtn.disabled = true;
+    animHint.textContent = "Playing Blender GLB: Empty Can (Jobe)";
+  };
+
   model.addEventListener("error", () => {
     showEmptyCanVideo("The GLB did not render in this browser session, so this is using the fallback preview.");
   }, { once: true });
 
+  model.addEventListener("load", () => {
+    activeModelEl = model;
+    replayBtn.disabled = false;
+    restartModelAnimation();
+  }, { once: true });
+
+  model.addEventListener("finished-iteration", () => {
+    if (typeof model.pause === "function") {
+      model.pause();
+    }
+    replayBtn.disabled = false;
+    animHint.textContent = "Empty Can pose loaded. Click Replay to run the animation again.";
+  });
+
+  replayBtn.addEventListener("click", restartModelAnimation);
+
   viewportEl.appendChild(model);
   viewportEl.appendChild(overlay);
   viewportEl.appendChild(caption);
+  viewportEl.appendChild(replayBtn);
 
   activeVideoEl = null;
+  activeModelEl = model;
   cameraHintEl.textContent = "Imported model";
-  modelHintEl.textContent = "Blender GLB";
+  modelHintEl.textContent = "Side view";
   animHint.textContent = "Playing Blender GLB: Empty Can (Jobe)";
 }
 
