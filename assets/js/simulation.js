@@ -22,8 +22,6 @@ const modelHintEl = document.getElementById("modelHint");
 let currentRegion = "shoulder";
 let activeTestIndex = null;
 let activeVideoEl = null;
-let activeThreeState = null;
-let threeModulesPromise = null;
 
 function testDisplayName(test) {
   if (typeof test === "string") return test;
@@ -47,34 +45,6 @@ function normalizeTestName(name) {
 }
 
 function clearViewport() {
-  if (activeThreeState) {
-    if (activeThreeState.rafId) {
-      window.cancelAnimationFrame(activeThreeState.rafId);
-    }
-    if (activeThreeState.resizeHandler) {
-      window.removeEventListener("resize", activeThreeState.resizeHandler);
-    }
-    if (activeThreeState.mixer) {
-      activeThreeState.mixer.stopAllAction();
-    }
-    if (activeThreeState.root) {
-      activeThreeState.root.traverse((node) => {
-        if (node.geometry) {
-          node.geometry.dispose?.();
-        }
-        const material = node.material;
-        if (Array.isArray(material)) {
-          material.forEach((entry) => entry?.dispose?.());
-        } else if (material) {
-          material.dispose?.();
-        }
-      });
-    }
-    if (activeThreeState.renderer) {
-      activeThreeState.renderer.dispose();
-    }
-    activeThreeState = null;
-  }
   if (activeVideoEl) {
     activeVideoEl.pause();
     activeVideoEl.removeAttribute("src");
@@ -96,7 +66,7 @@ function showNeutralViewport() {
   viewportEl.appendChild(
     createPlaceholder(
       "Simulation Ready",
-      "Choose a region and then a test. Empty Can will load your Blender GLB export; other tests stay as placeholders for now."
+      "Choose a region and then a test. Empty Can will play your Blender mp4 export; other tests stay as placeholders for now."
     )
   );
   cameraHintEl.textContent = "Front view";
@@ -109,7 +79,7 @@ function showRegionViewport(regionKey) {
   viewportEl.appendChild(
     createPlaceholder(
       regionName,
-      "Test assets will appear here. Right now this page is set up to preview your Empty Can GLB export."
+      "Test assets will appear here. Right now this page is set up to preview your Empty Can mp4 export."
     )
   );
   cameraHintEl.textContent = regionKey === "ankle" ? "Ankle focus" : "Front view";
@@ -121,7 +91,7 @@ function showEmptyCanVideo(message) {
 
   const video = document.createElement("video");
   video.className = "sim-video";
-  video.src = "animations/empty-can.mp4";
+  video.src = "animations/empty-can-test.mp4";
   video.controls = false;
   video.playsInline = true;
   video.preload = "auto";
@@ -137,186 +107,57 @@ function showEmptyCanVideo(message) {
   const overlay = document.createElement("div");
   overlay.className = "sim-video-overlay";
   overlay.innerHTML = `
-    <div class="sim-video-overlay-label">Simulation Preview</div>
-    <div class="sim-video-overlay-subtitle">${message || "Fallback preview from your Blender export"}</div>
-  `;
-
-  viewportEl.appendChild(video);
-  viewportEl.appendChild(overlay);
-  viewportEl.appendChild(caption);
-
-  activeVideoEl = video;
-  cameraHintEl.textContent = "Simulation preview";
-  modelHintEl.textContent = "Blender export";
-  animHint.textContent = "Playing Empty Can preview. The GLB version needs an HTTP-served page.";
-
-  const playPromise = video.play();
-  if (playPromise && typeof playPromise.catch === "function") {
-    playPromise.catch(() => {
-      animHint.textContent = "Preview loaded. Click the viewport if autoplay was blocked.";
-    });
-  }
-
-  video.addEventListener("click", () => {
-    if (video.paused) {
-      video.play().catch(() => {});
-    }
-  });
-}
-
-function showEmptyCanModel() {
-  clearViewport();
-
-  if (window.location.protocol === "file:") {
-    showEmptyCanVideo("Local browser pages usually block GLB fetching. This is using your clean fallback preview instead.");
-    return;
-  }
-
-  const stage = document.createElement("div");
-  stage.className = "sim-three-stage";
-
-  const caption = document.createElement("div");
-  caption.className = "sim-video-caption";
-  caption.textContent = "Empty Can simulation";
-
-  const overlay = document.createElement("div");
-  overlay.className = "sim-video-overlay";
-  overlay.innerHTML = `
-    <div class="sim-video-overlay-label">3D Simulation</div>
-    <div class="sim-video-overlay-subtitle">Loaded from your Blender GLB export</div>
+    <div class="sim-video-overlay-label">Animation Preview</div>
+    <div class="sim-video-overlay-subtitle">${message || "Loaded from your Blender mp4 export"}</div>
   `;
 
   const replayBtn = document.createElement("button");
   replayBtn.type = "button";
   replayBtn.className = "sim-replay-btn";
-  replayBtn.textContent = "Play animation";
+  replayBtn.textContent = "Replay";
   replayBtn.disabled = true;
 
-  viewportEl.appendChild(stage);
+  viewportEl.appendChild(video);
   viewportEl.appendChild(overlay);
   viewportEl.appendChild(caption);
   viewportEl.appendChild(replayBtn);
 
-  activeVideoEl = null;
+  activeVideoEl = video;
   cameraHintEl.textContent = "Oblique view";
-  modelHintEl.textContent = "Blender GLB";
-  animHint.textContent = "Loading Empty Can model...";
+  modelHintEl.textContent = "Blender mp4";
+  animHint.textContent = "Playing Empty Can animation.";
 
-  const loadThreeModules = async () => {
-    if (!threeModulesPromise) {
-      threeModulesPromise = Promise.all([
-        import("https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js"),
-        import("https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/loaders/GLTFLoader.js")
-      ]);
+  const playVideo = () => {
+    video.currentTime = 0;
+    replayBtn.disabled = true;
+    replayBtn.textContent = "Playing...";
+    animHint.textContent = "Playing Empty Can animation.";
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === "function") {
+      playPromise.catch(() => {
+        replayBtn.disabled = false;
+        replayBtn.textContent = "Play";
+        animHint.textContent = "Animation loaded. Click Play to start.";
+      });
     }
-    return threeModulesPromise;
   };
 
-  loadThreeModules()
-    .then(async ([THREE, { GLTFLoader }]) => {
-      const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-      renderer.setSize(stage.clientWidth || viewportEl.clientWidth || 760, stage.clientHeight || viewportEl.clientHeight || 520, false);
-      stage.appendChild(renderer.domElement);
+  video.addEventListener("ended", () => {
+    replayBtn.disabled = false;
+    replayBtn.textContent = "Replay";
+    animHint.textContent = "Empty Can animation complete. Click Replay to watch it again.";
+  });
 
-      const scene = new THREE.Scene();
-      scene.background = new THREE.Color(0x141926);
+  replayBtn.addEventListener("click", playVideo);
 
-      const camera = new THREE.PerspectiveCamera(24, 1, 0.1, 100);
-      const hemi = new THREE.HemisphereLight(0xe7f0ff, 0x24324a, 1.65);
-      const key = new THREE.DirectionalLight(0xffffff, 1.25);
-      key.position.set(3.2, 4.5, 2.8);
-      scene.add(hemi, key);
-
-      const loader = new GLTFLoader();
-      const gltf = await new Promise((resolve, reject) => {
-        loader.load("animations/empty-can.glb", resolve, undefined, reject);
-      });
-
-      const root = gltf.scene;
-      scene.add(root);
-
-      const box = new THREE.Box3().setFromObject(root);
-      const center = box.getCenter(new THREE.Vector3());
-      root.position.x -= center.x;
-      root.position.z -= center.z;
-      root.position.y -= box.min.y;
-
-      const fittedBox = new THREE.Box3().setFromObject(root);
-      const size = fittedBox.getSize(new THREE.Vector3());
-      const target = new THREE.Vector3(0, size.y * 0.58, 0);
-      const distance = Math.max(size.y * 1.02, size.x * 1.9, 2.2);
-      camera.position.set(distance * 0.78, size.y * 0.62, distance * 0.78);
-      camera.lookAt(target);
-
-      const mixer = new THREE.AnimationMixer(root);
-      const clip = gltf.animations?.[0];
-      const action = clip ? mixer.clipAction(clip) : null;
-      if (action) {
-        action.setLoop(THREE.LoopOnce, 1);
-        action.clampWhenFinished = true;
-        action.enabled = true;
-      }
-
-      const clock = new THREE.Clock();
-      let isPlaying = false;
-
-      const renderFrame = () => {
-        activeThreeState.rafId = window.requestAnimationFrame(renderFrame);
-        const delta = clock.getDelta();
-        if (isPlaying && mixer) {
-          mixer.update(delta);
-        }
-        renderer.render(scene, camera);
-      };
-
-      const resizeHandler = () => {
-        const width = stage.clientWidth || viewportEl.clientWidth || 760;
-        const height = stage.clientHeight || viewportEl.clientHeight || 520;
-        camera.aspect = width / height;
-        camera.updateProjectionMatrix();
-        renderer.setSize(width, height, false);
-      };
-
-      activeThreeState = { renderer, resizeHandler, rafId: null, mixer, root };
-      window.addEventListener("resize", resizeHandler);
-      resizeHandler();
-      renderFrame();
-
-      const stopAnimation = () => {
-        isPlaying = false;
-        replayBtn.disabled = false;
-        replayBtn.textContent = "Replay";
-        animHint.textContent = "Empty Can pose loaded. Click Replay to run the animation again.";
-      };
-
-      mixer.addEventListener("finished", stopAnimation);
-
-      const playAnimation = () => {
-        if (!action) return;
-        action.reset();
-        action.setLoop(THREE.LoopOnce, 1);
-        action.clampWhenFinished = true;
-        clock.getDelta();
-        isPlaying = true;
-        replayBtn.disabled = true;
-        replayBtn.textContent = "Playing...";
-        animHint.textContent = "Playing Blender GLB: Empty Can (Jobe)";
-        action.play();
-      };
-
-      replayBtn.disabled = !action;
-      replayBtn.textContent = action ? "Play animation" : "No animation";
-      replayBtn.addEventListener("click", playAnimation);
-
-      renderer.render(scene, camera);
-      animHint.textContent = action
-        ? "Empty Can model loaded. Click Play animation when you're ready."
-        : "The GLB loaded, but no animation clip was found.";
-    })
-    .catch(() => {
-      showEmptyCanVideo("The GLB did not render in this browser session, so this is using the fallback preview.");
+  const playPromise = video.play();
+  if (playPromise && typeof playPromise.catch === "function") {
+    playPromise.catch(() => {
+      replayBtn.disabled = false;
+      replayBtn.textContent = "Play";
+      animHint.textContent = "Animation loaded. Click Play to start.";
     });
+  }
 }
 
 function showGenericTestPreview(testName) {
