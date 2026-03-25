@@ -163,20 +163,22 @@ function showEmptyCanModel() {
   model.className = "sim-model-viewer";
   model.setAttribute("src", "animations/empty-can.glb");
   model.setAttribute("alt", "Empty Can 3D animation");
-  model.setAttribute("orientation", "0deg 90deg 0deg");
-  model.setAttribute("camera-orbit", "90deg 80deg 3.1m");
+  model.setAttribute("orientation", "0deg 45deg 0deg");
+  model.setAttribute("camera-orbit", "45deg 78deg 3.15m");
   model.setAttribute("camera-target", "0m 1.1m 0m");
   model.setAttribute("field-of-view", "24deg");
   model.setAttribute("interaction-prompt", "none");
   model.setAttribute("shadow-intensity", "1");
   model.setAttribute("environment-image", "neutral");
   model.setAttribute("exposure", "1.05");
-  model.setAttribute("min-camera-orbit", "88deg auto auto");
-  model.setAttribute("max-camera-orbit", "92deg auto auto");
+  model.setAttribute("min-camera-orbit", "43deg auto auto");
+  model.setAttribute("max-camera-orbit", "47deg auto auto");
   model.setAttribute("disable-zoom", "");
   model.setAttribute("interaction-policy", "allow-when-focused");
   model.autoplay = false;
   model.loop = false;
+  model.removeAttribute("autoplay");
+  model.removeAttribute("loop");
 
   const caption = document.createElement("div");
   caption.className = "sim-video-caption";
@@ -230,7 +232,7 @@ function showEmptyCanModel() {
     if (Number.isFinite(durationSeconds) && durationSeconds > 0) {
       activeModelStopTimer = window.setTimeout(stopModelAnimation, Math.ceil(durationSeconds * 1000) + 150);
     } else {
-      activeModelStopTimer = window.setTimeout(stopModelAnimation, 2600);
+      activeModelStopTimer = window.setTimeout(stopModelAnimation, 3500);
     }
   };
 
@@ -238,8 +240,16 @@ function showEmptyCanModel() {
     showEmptyCanVideo("The GLB did not render in this browser session, so this is using the fallback preview.");
   }, { once: true });
 
-  model.addEventListener("load", () => {
+  const initializeModelPlayback = () => {
     activeModelEl = model;
+    if (activeModelStopTimer) {
+      window.clearTimeout(activeModelStopTimer);
+      activeModelStopTimer = null;
+    }
+    model.autoplay = false;
+    model.loop = false;
+    model.removeAttribute("autoplay");
+    model.removeAttribute("loop");
     replayBtn.disabled = false;
     if (typeof model.pause === "function") {
       model.pause();
@@ -247,7 +257,13 @@ function showEmptyCanModel() {
     if ("currentTime" in model) {
       model.currentTime = 0;
     }
+    replayBtn.textContent = "Play animation";
     animHint.textContent = "Empty Can model loaded. Click Play animation when you're ready.";
+  };
+
+  model.addEventListener("load", () => {
+    initializeModelPlayback();
+    window.setTimeout(initializeModelPlayback, 150);
   }, { once: true });
 
   model.addEventListener("finished-iteration", () => {
