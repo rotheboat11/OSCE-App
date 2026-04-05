@@ -146,7 +146,7 @@
     .systems {
       margin-top: 2rem;
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 0.9rem;
     }
 
@@ -163,6 +163,7 @@
     .system:nth-child(2) { animation-delay: 0.07s; }
     .system:nth-child(3) { animation-delay: 0.14s; }
     .system:nth-child(4) { animation-delay: 0.21s; }
+    .system:nth-child(5) { animation-delay: 0.28s; }
 
     .system h3 {
       margin: 0 0 0.35rem;
@@ -185,6 +186,30 @@
       color: var(--ink-soft);
       font-size: 0.85rem;
       opacity: 0.9;
+    }
+
+    .credits {
+      margin-top: 1.25rem;
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--panel-border);
+      border-radius: 0.95rem;
+      background: var(--panel);
+      color: var(--ink-soft);
+      backdrop-filter: blur(6px);
+    }
+
+    .credits h2 {
+      margin: 0 0 0.4rem;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .credits p {
+      margin: 0;
+      font-size: 0.92rem;
+      line-height: 1.55;
     }
 
     @keyframes reveal {
@@ -240,7 +265,7 @@
         </p>
         <div class="btns">
           <a class="btn btn-primary" href="msk.html">Enter MSK Module</a>
-          <a class="btn btn-secondary" href="quiz.html?exam=shoulder">Try a Sample Quiz</a>
+          <a class="btn btn-secondary" href="clinical_hub.html">Open Clinical Skills Hub</a>
         </div>
       </section>
 
@@ -252,24 +277,43 @@
 
     <section class="systems">
       <article class="system active">
-        <h3>MSK</h3>
+        <h3><a href="msk.html" style="color: inherit; text-decoration: none;">MSK</a></h3>
         <p>Joint-by-joint exam flows, special tests, and neuro components.</p>
       </article>
       <article class="system">
-        <h3>Cardiovascular</h3>
+        <h3><a href="module.html?module=cardiovascular" style="color: inherit; text-decoration: none;">Cardiovascular</a></h3>
         <p>Inspection, pulse and pressure exam flow, and key auscultation landmarks.</p>
       </article>
       <article class="system">
-        <h3>Respiratory</h3>
+        <h3><a href="module.html?module=respiratory" style="color: inherit; text-decoration: none;">Respiratory</a></h3>
         <p>Breathing pattern assessment, percussion mapping, and focused auscultation.</p>
       </article>
       <article class="system">
-        <h3>Neurologic</h3>
+        <h3><a href="module.html?module=gastrointestinal" style="color: inherit; text-decoration: none;">Gastrointestinal</a></h3>
+        <p>Inspection, palpation, organomegaly, ascites, and exam completion steps.</p>
+      </article>
+      <article class="system">
+        <h3><a href="module.html?module=neurology" style="color: inherit; text-decoration: none;">Neurology</a></h3>
         <p>Cranial nerves, motor-sensory exam, reflexes, gait, and localization clues.</p>
+      </article>
+      <article class="system">
+        <h3><a href="module.html?module=psychiatry" style="color: inherit; text-decoration: none;">Psychiatry</a></h3>
+        <p>Mental status examination, interview structure, and risk-focused psychiatric assessment.</p>
+      </article>
+      <article class="system">
+        <h3><a href="module.html?module=history_taking" style="color: inherit; text-decoration: none;">History Taking</a></h3>
+        <p>General adult history framework, symptom exploration, and clean OSCE communication flow.</p>
       </article>
     </section>
 
     <p class="foot">This is now the default entry page. Use the title screen from any module to navigate quickly.</p>
+
+    <section class="credits">
+      <h2>Credits &amp; Use</h2>
+      <p>
+        Built and designed by Rohaan Syan. Content writing and study-support contributions: [Friend Name 1], [Friend Name 2], [Friend Name 3]. Copyright &copy; 2026 Rohaan Syan. All rights reserved unless otherwise noted.
+      </p>
+    </section>
   </div>
 </body>
 </html>

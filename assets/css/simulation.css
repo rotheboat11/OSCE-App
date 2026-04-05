@@ -171,30 +171,87 @@ body {
   transform: none;
 }
 
-.sim-video-overlay {
+.sim-force-overlay {
   position: absolute;
-  top: 1.2rem;
-  left: 1.2rem;
-  max-width: 240px;
-  padding: 0.7rem 0.85rem;
-  border-radius: 14px;
-  background: rgba(16, 49, 91, 0.84);
-  color: #ffffff;
-  box-shadow: 0 12px 24px rgba(22, 34, 52, 0.18);
+  inset: 0;
+  pointer-events: none;
 }
 
-.sim-video-overlay-label {
-  font-size: 0.85rem;
+.sim-force-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.sim-force-line {
+  fill: none;
+  stroke-width: 1.15;
+  stroke-linecap: round;
+  filter: drop-shadow(0 3px 8px rgba(16, 49, 91, 0.18));
+}
+
+.sim-force-line.patient {
+  stroke: #1ba97f;
+  marker-end: url(#patientArrowHead);
+}
+
+.sim-force-line.examiner {
+  stroke: #d94b52;
+  marker-end: url(#examinerArrowHead);
+}
+
+.sim-force-line.patient.lift-off-patient-line {
+  marker-end: url(#liftOffPatientArrowHead);
+}
+
+.sim-force-line.examiner.lift-off-examiner-line {
+  marker-end: url(#liftOffExaminerArrowHead);
+}
+
+.sim-force-line.examiner.neer-examiner-line {
+  marker-end: url(#neerExaminerArrowHead);
+}
+
+.sim-force-label {
+  position: absolute;
+  padding: 0.22rem 0.42rem;
+  border-radius: 999px;
+  font-size: 0.64rem;
   font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
+  line-height: 1;
+  box-shadow: 0 8px 14px rgba(22, 34, 52, 0.1);
 }
 
-.sim-video-overlay-subtitle {
-  margin-top: 0.2rem;
-  font-size: 0.78rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.35;
+.sim-force-label.patient {
+  top: 22.5%;
+  left: 9%;
+  background: rgba(27, 169, 127, 0.14);
+  border: 1px solid rgba(27, 169, 127, 0.28);
+  color: #127a5b;
+}
+
+.sim-force-label.examiner {
+  top: 44%;
+  right: 4%;
+  background: rgba(217, 75, 82, 0.14);
+  border: 1px solid rgba(217, 75, 82, 0.28);
+  color: #a13239;
+}
+
+.sim-force-label.patient.lift-off-patient-label {
+  top: 45%;
+  right: 12%;
+  left: auto;
+}
+
+.sim-force-label.examiner.lift-off-examiner-label {
+  top: 26%;
+  right: 8.5%;
+}
+
+.sim-force-label.examiner.neer-examiner-label {
+  top: 34%;
+  right: 5.5%;
 }
 
 .sim-overlay {
@@ -323,19 +380,11 @@ body {
   .sim-viewport {
     height: 500px;
   }
-
-  .sim-model-viewer {
-    min-height: 440px;
-  }
 }
 
 @media (max-width: 576px) {
   .sim-viewport {
     height: 420px;
-  }
-
-  .sim-model-viewer {
-    min-height: 360px;
   }
 
   .sim-status-row {

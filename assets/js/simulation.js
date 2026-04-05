@@ -23,6 +23,76 @@ let currentRegion = "shoulder";
 let activeTestIndex = null;
 let activeVideoEl = null;
 
+const TEST_VIDEO_CONFIG = {
+  "empty can (jobe)": {
+    src: "animations/Shoulder/empty-can-test.mp4",
+    caption: "Empty Can simulation",
+    cameraHint: "Oblique view",
+    modelHint: "Blender mp4",
+    playText: "Playing Empty Can animation.",
+    endedText: "Empty Can animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="patientArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1ba97f"></path>
+          </marker>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line patient" d="M9 47 L9 31"></path>
+        <path class="sim-force-line examiner" d="M91 23 L91 39"></path>
+      </svg>
+      <div class="sim-force-label patient">Patient lifts</div>
+      <div class="sim-force-label examiner">Examiner pushes down</div>
+    `
+  },
+  "lift-off": {
+    src: "animations/Shoulder/lift-off-test.mp4",
+    caption: "Lift-off simulation",
+    cameraHint: "Posterior-oblique view",
+    modelHint: "Blender mp4",
+    playText: "Playing Lift-off animation.",
+    endedText: "Lift-off animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="liftOffPatientArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1ba97f"></path>
+          </marker>
+          <marker id="liftOffExaminerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line patient lift-off-patient-line" d="M65 64 L78 53"></path>
+        <path class="sim-force-line examiner lift-off-examiner-line" d="M84 31 L69 43"></path>
+      </svg>
+      <div class="sim-force-label patient lift-off-patient-label">Patient lifts off</div>
+      <div class="sim-force-label examiner lift-off-examiner-label">Examiner resists</div>
+    `
+  },
+  "neer": {
+    src: "animations/Shoulder/neer-test.mp4",
+    caption: "Neer simulation",
+    cameraHint: "Anterior-oblique view",
+    modelHint: "Blender mp4",
+    playText: "Playing Neer animation.",
+    endedText: "Neer animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="neerExaminerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner neer-examiner-line" d="M88 68 L88 46"></path>
+      </svg>
+      <div class="sim-force-label examiner neer-examiner-label">Examiner passively moves</div>
+    `
+  }
+};
+
 function testDisplayName(test) {
   if (typeof test === "string") return test;
   if (test && typeof test === "object") return test.name || test.title || "Unnamed test";
@@ -86,12 +156,17 @@ function showRegionViewport(regionKey) {
   modelHintEl.textContent = regionKey === "shoulder" ? "Shoulder preview" : "Simulation preview";
 }
 
-function showEmptyCanVideo(message) {
+function showTestVideo(testName, message) {
   clearViewport();
+  const config = TEST_VIDEO_CONFIG[normalizeTestName(testName)];
+  if (!config) {
+    showGenericTestPreview(testName);
+    return;
+  }
 
   const video = document.createElement("video");
   video.className = "sim-video";
-  video.src = "animations/empty-can-test.mp4";
+  video.src = config.src;
   video.controls = false;
   video.playsInline = true;
   video.preload = "auto";
@@ -102,14 +177,14 @@ function showEmptyCanVideo(message) {
 
   const caption = document.createElement("div");
   caption.className = "sim-video-caption";
-  caption.textContent = "Empty Can simulation";
+  caption.textContent = config.caption;
 
-  const overlay = document.createElement("div");
-  overlay.className = "sim-video-overlay";
-  overlay.innerHTML = `
-    <div class="sim-video-overlay-label">Animation Preview</div>
-    <div class="sim-video-overlay-subtitle">${message || "Loaded from your Blender mp4 export"}</div>
-  `;
+  let forceOverlay = null;
+  if (config.forceOverlay) {
+    forceOverlay = document.createElement("div");
+    forceOverlay.className = "sim-force-overlay";
+    forceOverlay.innerHTML = config.forceOverlay;
+  }
 
   const replayBtn = document.createElement("button");
   replayBtn.type = "button";
@@ -118,20 +193,20 @@ function showEmptyCanVideo(message) {
   replayBtn.disabled = true;
 
   viewportEl.appendChild(video);
-  viewportEl.appendChild(overlay);
+  if (forceOverlay) viewportEl.appendChild(forceOverlay);
   viewportEl.appendChild(caption);
   viewportEl.appendChild(replayBtn);
 
   activeVideoEl = video;
-  cameraHintEl.textContent = "Oblique view";
-  modelHintEl.textContent = "Blender mp4";
-  animHint.textContent = "Playing Empty Can animation.";
+  cameraHintEl.textContent = config.cameraHint || "Simulation view";
+  modelHintEl.textContent = config.modelHint || "Blender mp4";
+  animHint.textContent = config.playText || `Playing ${testName} animation.`;
 
   const playVideo = () => {
     video.currentTime = 0;
     replayBtn.disabled = true;
     replayBtn.textContent = "Playing...";
-    animHint.textContent = "Playing Empty Can animation.";
+    animHint.textContent = config.playText || `Playing ${testName} animation.`;
     const playPromise = video.play();
     if (playPromise && typeof playPromise.catch === "function") {
       playPromise.catch(() => {
@@ -145,7 +220,7 @@ function showEmptyCanVideo(message) {
   video.addEventListener("ended", () => {
     replayBtn.disabled = false;
     replayBtn.textContent = "Replay";
-    animHint.textContent = "Empty Can animation complete. Click Replay to watch it again.";
+    animHint.textContent = config.endedText || `${testName} animation complete. Click Replay to watch it again.`;
   });
 
   replayBtn.addEventListener("click", playVideo);
@@ -238,8 +313,9 @@ function renderTests() {
       updateActiveTestButton();
       updateResetButton();
 
-      if (normalizeTestName(testName) === "empty can (jobe)") {
-        showEmptyCanModel();
+      const normalized = normalizeTestName(testName);
+      if (TEST_VIDEO_CONFIG[normalized]) {
+        showTestVideo(testName);
       } else {
         showGenericTestPreview(testName);
       }

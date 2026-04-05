@@ -51,6 +51,32 @@
   border: 2px solid #dee2e6;
 }
 
+.app-credits {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid #d5e1f3;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 20px rgba(22, 34, 52, 0.05);
+  color: #34475f;
+}
+
+.app-credits-title {
+  margin: 0 0 0.45rem;
+  color: #1d4580;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.app-credits-copy {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
 @media (max-width: 768px) {
   .anatomy-image,
   .fallback-icon {

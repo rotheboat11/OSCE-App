@@ -44,18 +44,7 @@ window.MSK_EXAMS = {
         "pearl": "A screen isn’t the end—it’s a triage tool to focus your detailed exam."
       }
     ],
-    "special_tests": [
-      {
-        "name": "GALS Screen (overview)",
-        "how": [
-          "Ask about pain, stiffness, and functional difficulty.",
-          "Perform Look–Feel–Move across gait, arms, legs, spine."
-        ],
-        "positive": "Any abnormality that warrants a focused regional exam.",
-        "pearl": "The goal is to not miss a problem—not to make a final diagnosis on the spot.",
-        "image": ""
-      }
-    ]
+    "special_tests": []
   },
   "cervical_spine": {
     "name": "Cervical Spine Examination",
@@ -111,46 +100,6 @@ window.MSK_EXAMS = {
         ],
         "positive": "Reproduction of radicular arm pain/paresthesia (suggesting cervical radiculopathy).",
         "pearl": "Radicular symptoms are more meaningful than neck pain alone—use gentle pressure.",
-        "image": ""
-      },
-      {
-        "name": "Neck Distraction",
-        "how": [
-          "Apply gentle axial traction to the head/neck.",
-          "Assess symptom change."
-        ],
-        "positive": "Relief of radicular symptoms (supports cervical radiculopathy).",
-        "pearl": "If traction improves symptoms, it pairs well with a positive Spurling for clinical confidence.",
-        "image": ""
-      },
-      {
-        "name": "Lhermitte Sign",
-        "how": [
-          "Ask patient to flex the neck (often seated).",
-          "Ask about electric shock-like sensations."
-        ],
-        "positive": "Shock-like sensation down spine/limbs (suggesting cervical cord involvement).",
-        "pearl": "This is a concerning sign—think cord pathology rather than simple radiculopathy.",
-        "image": ""
-      },
-      {
-        "name": "Sharp-Purser (Atlantoaxial instability screen)",
-        "how": [
-          "Patient seated; stabilize C2 and apply posterior glide to forehead as patient gently nods.",
-          "Only perform if clinically indicated and you’re trained."
-        ],
-        "positive": "Symptom reduction or excessive movement suggesting instability.",
-        "pearl": "If you’re not comfortable/it’s not taught locally, skip—safety > completeness.",
-        "image": ""
-      },
-      {
-        "name": "Vertebral Artery Screen (as indicated)",
-        "how": [
-          "Ask about dizziness, diplopia, dysarthria, drop attacks; proceed cautiously.",
-          "Avoid provoking positions if symptoms suggest vertebrobasilar insufficiency."
-        ],
-        "positive": "Reproduction of vertebrobasilar symptoms (concerning).",
-        "pearl": "History is often more important than any single maneuver—treat red flags seriously.",
         "image": ""
       }
     ]
@@ -209,16 +158,6 @@ window.MSK_EXAMS = {
         ],
         "positive": "Reproduction of radicular pain down the leg (suggesting nerve root irritation).",
         "pearl": "Back/hamstring tightness is not the same as radicular pain—ask where the pain travels.",
-        "image": ""
-      },
-      {
-        "name": "Slump Test",
-        "how": [
-          "Seated: slump spine, flex neck, extend knee, dorsiflex ankle (stepwise).",
-          "Relieve neck flexion to see if symptoms ease."
-        ],
-        "positive": "Reproduction of radicular symptoms that change with neural tension maneuvers.",
-        "pearl": "Do stepwise—if symptoms appear, you don’t need to push through every step.",
         "image": ""
       },
       {
@@ -342,12 +281,12 @@ window.MSK_EXAMS = {
         "image": ""
       },
       {
-        "name": "Apprehension / Relocation",
+        "name": "Apprehension",
         "how": [
           "With the patient supine or seated, abduct the shoulder to ~90° and slowly externally rotate.",
-          "If apprehension occurs, apply a gentle posterior force on the humeral head (relocation) and reassess symptoms."
+          "Watch for apprehension suggesting instability and stop early if the patient becomes guarded."
         ],
-        "positive": "Apprehension (not just pain) with external rotation; relief with relocation suggests anterior instability.",
+        "positive": "Apprehension (not just pain) with external rotation, suggesting shoulder instability/dislocation tendency.",
         "pearl": "Move slowly and stop when the patient feels apprehension—don’t force a dislocation.",
         "image": ""
       }
@@ -526,26 +465,6 @@ window.MSK_EXAMS = {
         "positive": "Pain over radial styloid (suggesting de Quervain tenosynovitis).",
         "pearl": "Do gently—this can be very painful and patients may guard.",
         "image": ""
-      },
-      {
-        "name": "Watson (Scaphoid Shift)",
-        "how": [
-          "Apply pressure to the scaphoid tubercle while moving wrist from ulnar to radial deviation.",
-          "Compare sides."
-        ],
-        "positive": "Pain/click/clunk (suggesting scapholunate instability).",
-        "pearl": "This test is technique-dependent—interpret with history and other findings.",
-        "image": ""
-      },
-      {
-        "name": "Allen Test (Hand Perfusion Screen)",
-        "how": [
-          "Occlude radial and ulnar arteries, have patient clench/unclench to blanch hand.",
-          "Release one artery and observe reperfusion; repeat for other."
-        ],
-        "positive": "Delayed/absent reperfusion (suggesting impaired collateral flow).",
-        "pearl": "This is a screening test—abnormal results warrant further assessment if clinically important.",
-        "image": ""
       }
     ]
   },
@@ -595,26 +514,6 @@ window.MSK_EXAMS = {
       }
     ],
     "special_tests": [
-      {
-        "name": "FADIR",
-        "how": [
-          "Flex the hip to ~90°.",
-          "Adduct and internally rotate the hip."
-        ],
-        "positive": "Reproduction of groin pain (suggesting femoroacetabular impingement/intra-articular pathology).",
-        "pearl": "Groin pain is more convincing than vague lateral discomfort—note where they feel it.",
-        "image": ""
-      },
-      {
-        "name": "FABER",
-        "how": [
-          "Place the tested leg in figure-4 (flexion, abduction, external rotation).",
-          "Stabilize pelvis and gently press the knee toward the table."
-        ],
-        "positive": "Groin pain (hip) or posterior/SI pain (SI involvement).",
-        "pearl": "Ask the patient to localize the pain—anterior vs posterior changes interpretation.",
-        "image": ""
-      },
       {
         "name": "Thomas Test",
         "how": [
@@ -734,16 +633,6 @@ window.MSK_EXAMS = {
         "positive": "Excess gapping or laxity compared with contralateral side (suggesting collateral ligament injury).",
         "pearl": "Testing at ~30° isolates the collaterals better than full extension.",
         "image": ""
-      },
-      {
-        "name": "Patellar Apprehension",
-        "how": [
-          "With the knee slightly flexed, gently translate the patella laterally.",
-          "Watch for apprehension and ask about fear of dislocation."
-        ],
-        "positive": "Apprehension (patient resists/guards) suggesting patellar instability.",
-        "pearl": "Apprehension is more meaningful than pain alone—move slowly and stop early if fear is obvious.",
-        "image": ""
       }
     ]
   },
@@ -804,43 +693,13 @@ window.MSK_EXAMS = {
         "image": ""
       },
       {
-        "name": "Talar Tilt",
-        "how": [
-          "Stabilize the tibia.",
-          "Invert the calcaneus to stress lateral ligaments (or evert to stress deltoid)."
-        ],
-        "positive": "Increased tilt/laxity compared with the other side (suggesting CFL or deltoid injury depending on direction).",
-        "pearl": "Do this after anterior drawer—patients tolerate it better once they know what to expect.",
-        "image": ""
-      },
-      {
-        "name": "Thompson Test",
-        "how": [
-          "With patient prone and feet off the edge, squeeze the calf.",
-          "Observe for plantarflexion."
-        ],
-        "positive": "Absent/markedly reduced plantarflexion (suggesting Achilles rupture).",
-        "pearl": "Compare sides; a partial tear can still produce some movement.",
-        "image": ""
-      },
-      {
         "name": "Ottawa Ankle Rules (screen)",
         "how": [
-          "Assess bony tenderness at malleolar zone and ability to bear weight (4 steps).",
-          "Assess midfoot tenderness (navicular/base of 5th) and weight-bearing if foot pain."
+          "Assess for pain in the malleolar or midfoot zone.",
+          "Check for bony tenderness at the posterior edge or tip of the lateral or medial malleolus (ankle), or at the navicular or base of the 5th metatarsal (foot), and assess ability to bear weight for 4 steps both immediately after injury and at evaluation."
         ],
-        "positive": "Rule-positive pattern suggests imaging is warranted to exclude fracture.",
-        "pearl": "Use as a decision aid—it helps reduce unnecessary radiographs.",
-        "image": ""
-      },
-      {
-        "name": "Windlass Test",
-        "how": [
-          "Dorsiflex the great toe (often in standing) to tension plantar fascia.",
-          "Ask about pain at medial calcaneal tubercle/arch."
-        ],
-        "positive": "Reproduction of plantar heel/arch pain (suggesting plantar fasciitis).",
-        "pearl": "Standing windlass often reproduces symptoms better than supine testing.",
+        "positive": "Presence of any of the above criteria indicates that an X-ray is warranted to rule out fracture.",
+        "pearl": "Highly sensitive; rules out fractures and helps reduce unnecessary imaging.",
         "image": ""
       }
     ]
@@ -889,7 +748,7 @@ window.MSK_EXAMS = {
         "title": "Upper Motor Neuron Screen",
         "how": [
           "Check plantar response (Babinski) when cord/UMN involvement is a concern.",
-          "Add Hoffman’s if upper extremity symptoms suggest cord involvement (and you’re comfortable with technique)."
+          "Interpret any UMN findings alongside gait change, sensory change, and the rest of the neurologic screen."
         ],
         "pearl": "UMN signs + sensory level or gait change should push you toward cord pathology rather than a simple peripheral issue."
       },
@@ -932,28 +791,7 @@ window.MSK_EXAMS = {
         "positive": "Upgoing great toe (often with toe fanning), suggesting an UMN pattern.",
         "pearl": "Do it slowly and firmly; a “withdrawal” tickle response is not the same as a true Babinski.",
         "image": ""
-      },
-      {
-        "name": "Hoffman’s Sign",
-        "how": [
-          "Support the hand; flick the distal phalanx of the middle finger downward and release.",
-          "Watch for thumb/index finger flexion."
-        ],
-        "positive": "Reflex thumb/index flexion suggesting possible UMN/cervical cord involvement (context dependent).",
-        "pearl": "Interpret in context—pair it with gait changes, hyperreflexia, and sensory findings rather than using it alone.",
-        "image": ""
-      },
-      {
-        "name": "Romberg Test",
-        "how": [
-          "Patient stands with feet together; test eyes open first, then eyes closed.",
-          "Stand close enough to prevent a fall."
-        ],
-        "positive": "Increased sway or loss of balance with eyes closed (suggesting proprioceptive/vestibular contribution).",
-        "pearl": "If they’re unstable with eyes open too, that’s not a classic Romberg—think cerebellar or general instability.",
-        "image": ""
       }
     ]
   }
 };
-
