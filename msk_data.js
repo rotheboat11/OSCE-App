@@ -281,6 +281,36 @@ window.MSK_EXAMS = {
         "image": ""
       },
       {
+        "name": "Drop Arm Test",
+        "how": [
+          "Start with the arm abducted overhead.",
+          "Ask the patient to slowly lower the arm back down."
+        ],
+        "positive": "The arm drops suddenly or cannot be lowered smoothly, suggesting rotator cuff tear or marked supraspinatus weakness.",
+        "pearl": "Support the arm if needed and watch for a sudden drop through the mid-arc.",
+        "image": ""
+      },
+      {
+        "name": "Cups Test",
+        "how": [
+          "Keep the elbows tucked by the waist and flexed to 90° as if holding cups.",
+          "Apply inward pressure while the patient resists externally rotating."
+        ],
+        "positive": "Pain and/or weakness with resisted external rotation, suggesting infraspinatus or teres minor involvement.",
+        "pearl": "Keep the elbows pinned to the sides so you test external rotation rather than shoulder abduction.",
+        "image": ""
+      },
+      {
+        "name": "AC Joint Adduction",
+        "how": [
+          "Bring the patient’s shoulder to about 90° forward flexion.",
+          "Move the arm across the chest to stress the AC joint."
+        ],
+        "positive": "Pain at the acromioclavicular joint, suggesting AC joint inflammation or pathology.",
+        "pearl": "Pain localized to the top of the shoulder is more meaningful than diffuse discomfort.",
+        "image": ""
+      },
+      {
         "name": "Apprehension",
         "how": [
           "With the patient supine or seated, abduct the shoulder to ~90° and slowly externally rotate.",
@@ -615,6 +645,16 @@ window.MSK_EXAMS = {
         "image": ""
       },
       {
+        "name": "Posterior Drawer",
+        "how": [
+          "Flex the knee to ~90° with the foot stabilized.",
+          "Push the tibia posteriorly while keeping the hamstrings relaxed."
+        ],
+        "positive": "Excess posterior translation compared with the other side (suggesting PCL injury).",
+        "pearl": "Check the starting tibial position first so posterior sag does not confuse your drawer interpretation.",
+        "image": ""
+      },
+      {
         "name": "McMurray",
         "how": [
           "Flex the knee fully; palpate the joint line.",
@@ -622,6 +662,26 @@ window.MSK_EXAMS = {
         ],
         "positive": "Pain and/or a palpable/audible click along the joint line (suggesting meniscal pathology).",
         "pearl": "Joint-line tenderness plus McMurray symptoms is more convincing than either alone.",
+        "image": ""
+      },
+      {
+        "name": "McMurray (Medial)",
+        "how": [
+          "Flex the knee fully and palpate the medial joint line.",
+          "Externally rotate the foot and extend the knee while applying valgus stress."
+        ],
+        "positive": "Pain, click, or grind along the medial joint line, suggesting medial meniscal pathology.",
+        "pearl": "Move slowly through extension so subtle catches are easier to appreciate.",
+        "image": ""
+      },
+      {
+        "name": "McMurray (Lateral)",
+        "how": [
+          "Flex the knee fully and palpate the lateral joint line.",
+          "Internally rotate the foot and extend the knee while applying varus stress."
+        ],
+        "positive": "Pain, click, or grind along the lateral joint line, suggesting lateral meniscal pathology.",
+        "pearl": "Keep the maneuver gentle; forcing the knee can provoke non-specific pain.",
         "image": ""
       },
       {

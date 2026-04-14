@@ -212,6 +212,18 @@ body {
   marker-end: url(#neerExaminerArrowHead);
 }
 
+.sim-force-line.finding {
+  stroke: #7a57d1;
+}
+
+.sim-force-line.finding.trendelenburg-finding-line {
+  marker-end: url(#trendelenburgFindingArrowHead);
+}
+
+.sim-force-line.finding.thomas-finding-line {
+  marker-end: url(#thomasFindingArrowHead);
+}
+
 .sim-force-label {
   position: absolute;
   padding: 0.22rem 0.42rem;
@@ -238,6 +250,12 @@ body {
   color: #a13239;
 }
 
+.sim-force-label.finding {
+  background: rgba(122, 87, 209, 0.14);
+  border: 1px solid rgba(122, 87, 209, 0.28);
+  color: #5a37b0;
+}
+
 .sim-force-label.patient.lift-off-patient-label {
   top: 45%;
   right: 12%;
@@ -252,6 +270,137 @@ body {
 .sim-force-label.examiner.neer-examiner-label {
   top: 34%;
   right: 5.5%;
+}
+
+.sim-force-label.patient.drop-arm-patient-label {
+  top: 20%;
+  right: 4%;
+  left: auto;
+}
+
+.sim-force-label.examiner.drop-arm-examiner-label {
+  top: 47%;
+  right: 67%;
+}
+
+.sim-force-label.patient.cups-patient-label {
+  top: 62.5%;
+  left: 4%;
+}
+
+.sim-force-label.examiner.cups-examiner-label {
+  top: 42%;
+  left: 4%;
+  right: auto;
+}
+
+.sim-force-label.examiner.ac-joint-examiner-label {
+  top: 32%;
+  right: 5%;
+}
+
+.sim-force-label.examiner.spurling-examiner-label {
+  top: 5%;
+  left: 37.5%;
+  right: auto;
+}
+
+.sim-force-label.examiner.slr-examiner-label {
+  top: 61%;
+  right: 3.5%;
+}
+
+.sim-force-label.examiner.slr-df-label {
+  top: 15.5%;
+  right: 6%;
+}
+
+.sim-force-label.examiner.faber-examiner-label {
+  top: 13.5%;
+  right: 45%;
+}
+
+.sim-force-label.examiner.femoral-examiner-label {
+  top: 35%;
+  right: 5%;
+}
+
+.sim-force-label.examiner.femoral-hip-label {
+  top: 50%;
+  right: 63.5%;
+}
+
+.sim-force-label.examiner.tinel-elbow-label {
+  top: 42.5%;
+  right: 25.5%;
+}
+
+.sim-force-label.patient.phalen-patient-label {
+  top: 43%;
+  left: 65%;
+}
+
+.sim-force-label.examiner.tinel-wrist-label {
+  top: 64%;
+  right: 9.5%;
+}
+
+.sim-force-label.examiner.finkelstein-examiner-label {
+  top: 34.5%;
+  right: 10%;
+}
+
+.sim-force-label.finding.trendelenburg-patient-label {
+  top: 35%;
+  right: 67%;
+  left: auto;
+}
+
+.sim-force-label.examiner.ober-examiner-label {
+  top: 29%;
+  right: 9%;
+}
+
+.sim-force-label.patient.thomas-patient-label {
+  top: 35%;
+  right: 14%;
+  left: auto;
+}
+
+.sim-force-label.finding.thomas-finding-label {
+  top: 73%;
+  left: 64%;
+  right: auto;
+}
+
+.sim-force-label.examiner.lachman-examiner-label {
+  top: 25%;
+  right: 36%;
+}
+
+.sim-force-label.examiner.ant-drawer-knee-label {
+  top: 33%;
+  right: 26%;
+}
+
+.sim-force-label.examiner.post-drawer-knee-label {
+  top: 34.5%;
+  right: 26%;
+}
+
+.sim-force-label.examiner.mcmurray-medial-label {
+  top: 58%;
+  right: 3.5%;
+}
+
+.sim-force-label.examiner.mcmurray-lateral-label {
+  top: 70%;
+  right: 6%;
+}
+
+.sim-force-label.examiner.ankle-drawer-label {
+  top: 70%;
+  right: 22%;
 }
 
 .sim-overlay {

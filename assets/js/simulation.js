@@ -26,6 +26,7 @@ let activeVideoEl = null;
 const TEST_VIDEO_CONFIG = {
   "empty can (jobe)": {
     src: "animations/Shoulder/empty-can-test.mp4",
+    playbackRate: 0.75,
     caption: "Empty Can simulation",
     cameraHint: "Oblique view",
     modelHint: "Blender mp4",
@@ -50,6 +51,7 @@ const TEST_VIDEO_CONFIG = {
   },
   "lift-off": {
     src: "animations/Shoulder/lift-off-test.mp4",
+    playbackRate: 0.75,
     caption: "Lift-off simulation",
     cameraHint: "Posterior-oblique view",
     modelHint: "Blender mp4",
@@ -74,6 +76,7 @@ const TEST_VIDEO_CONFIG = {
   },
   "neer": {
     src: "animations/Shoulder/neer-test.mp4",
+    playbackRate: 0.75,
     caption: "Neer simulation",
     cameraHint: "Anterior-oblique view",
     modelHint: "Blender mp4",
@@ -89,6 +92,426 @@ const TEST_VIDEO_CONFIG = {
         <path class="sim-force-line examiner neer-examiner-line" d="M88 68 L88 46"></path>
       </svg>
       <div class="sim-force-label examiner neer-examiner-label">Examiner passively moves</div>
+    `
+  },
+  "drop arm test": {
+    src: "animations/Shoulder/drop-test.mp4",
+    playbackRate: 0.75,
+    caption: "Drop Arm simulation",
+    cameraHint: "Anterior-oblique view",
+    modelHint: "Blender mp4",
+    playText: "Playing Drop Arm animation.",
+    endedText: "Drop Arm animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+          <marker id="patientArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1ba97f"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M15 45 L15 28"></path>
+        <path class="sim-force-line patient" d="M90 25 L90 43"></path>
+      </svg>
+      <div class="sim-force-label examiner drop-arm-examiner-label">Examiner passively abducts arm</div>
+      <div class="sim-force-label patient drop-arm-patient-label">Patient lowers arm (slowly)</div>
+    `
+  },
+  "cups test": {
+    src: "animations/Shoulder/cups-test.mp4",
+    playbackRate: 0.75,
+    caption: "Cups Test simulation",
+    cameraHint: "Anterior-oblique view",
+    modelHint: "Blender mp4",
+    playText: "Playing Cups Test animation.",
+    endedText: "Cups Test animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="patientArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1ba97f"></path>
+          </marker>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line patient" d="M28 58 L13 58"></path>
+        <path class="sim-force-line examiner" d="M13 48 L28 48"></path>
+      </svg>
+      <div class="sim-force-label patient cups-patient-label">Patient externally rotates</div>
+      <div class="sim-force-label examiner cups-examiner-label">Examiner resists inward</div>
+    `
+  },
+  "ac joint adduction": {
+    src: "animations/Shoulder/ac-joint-test.mp4",
+    playbackRate: 0.75,
+    caption: "AC Joint Adduction simulation",
+    cameraHint: "Anterior-oblique view",
+    modelHint: "Blender mp4",
+    playText: "Playing AC Joint Adduction animation.",
+    endedText: "AC Joint Adduction animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M70 40 L88 40"></path>
+      </svg>
+      <div class="sim-force-label examiner ac-joint-examiner-label">Examiner moves arm across chest</div>
+    `
+  },
+  "spurling": {
+    src: "animations/Cervical Spine/spurling-test.mp4",
+    playbackRate: 0.75,
+    caption: "Spurling simulation",
+    cameraHint: "Cervical focus",
+    modelHint: "Blender mp4",
+    playText: "Playing Spurling animation.",
+    endedText: "Spurling animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M50 10 L50 30"></path>
+      </svg>
+      <div class="sim-force-label examiner spurling-examiner-label">Examiner compresses (axial)</div>
+    `
+  },
+  "straight leg raise": {
+    src: "animations/Lumbar Spine/straight-leg-raise-test.mp4",
+    playbackRate: 0.75,
+    caption: "Straight Leg Raise simulation",
+    cameraHint: "Lumbar view",
+    modelHint: "Blender mp4",
+    playText: "Playing Straight Leg Raise animation.",
+    endedText: "Straight Leg Raise animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M95 60 L80 40"></path>
+        <path class="sim-force-line examiner" d="M75 10 L60 22"></path>
+      </svg>
+      <div class="sim-force-label examiner slr-examiner-label">Examiner raises leg</div>
+      <div class="sim-force-label examiner slr-df-label">Then dorsiflexes foot (after pain)</div>
+    `
+  },
+  "faber (si/hip screen)": {
+    src: "animations/Lumbar Spine/faber-test.mp4",
+    playbackRate: 0.75,
+    caption: "FABER simulation",
+    cameraHint: "Pelvic view",
+    modelHint: "Blender mp4",
+    playText: "Playing FABER animation.",
+    endedText: "FABER animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M45 18 L38 33"></path>
+      </svg>
+      <div class="sim-force-label examiner faber-examiner-label">Examiner pushes knee</div>
+    `
+  },
+  "femoral nerve stretch": {
+    src: "animations/Lumbar Spine/femoral-nerve-stretch.mp4",
+    playbackRate: 0.75,
+    caption: "Femoral Nerve Stretch simulation",
+    cameraHint: "Lumbar view",
+    modelHint: "Blender mp4",
+    playText: "Playing Femoral Nerve Stretch animation.",
+    endedText: "Femoral Nerve Stretch animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M100 30 L80 30"></path>
+        <path class="sim-force-line examiner" d="M20 48 L20 31"></path>
+      </svg>
+      <div class="sim-force-label examiner femoral-examiner-label">Examiner flexes knee</div>
+      <div class="sim-force-label examiner femoral-hip-label">Examiner then extends hip</div>
+    `
+  },
+  "tinel at cubital tunnel": {
+    src: "animations/Elbow/tinel-elbow.mp4",
+    playbackRate: 0.75,
+    caption: "Tinel at Elbow simulation",
+    cameraHint: "Elbow focus",
+    modelHint: "Blender mp4",
+    playText: "Playing Tinel at elbow animation.",
+    endedText: "Tinel at elbow animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M65 47 L65 67"></path>
+      </svg>
+      <div class="sim-force-label examiner tinel-elbow-label">Examiner taps ulnar nerve</div>
+    `
+  },
+  "phalen": {
+    src: "animations/Wrist/phalen-test.mp4",
+    playbackRate: 0.75,
+    caption: "Phalen simulation",
+    cameraHint: "Wrist focus",
+    modelHint: "Blender mp4",
+    playText: "Playing Phalen animation.",
+    endedText: "Phalen animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="patientArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1ba97f"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line patient" d="M26 41 L38 41"></path>
+        <path class="sim-force-line patient" d="M74 41 L62 41"></path>
+      </svg>
+      <div class="sim-force-label patient phalen-patient-label">Patient holds wrists flexed</div>
+    `
+  },
+  "tinel (carpal tunnel)": {
+    src: "animations/Wrist/tinel-wrist.mp4",
+    playbackRate: 0.75,
+    caption: "Tinel at Wrist simulation",
+    cameraHint: "Wrist focus",
+    modelHint: "Blender mp4",
+    playText: "Playing Tinel at wrist animation.",
+    endedText: "Tinel at wrist animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M67 66 L52 66"></path>
+      </svg>
+      <div class="sim-force-label examiner tinel-wrist-label">Examiner taps median nerve</div>
+    `
+  },
+  "finkelstein": {
+    src: "animations/Wrist/finkelstein.mp4",
+    playbackRate: 0.75,
+    caption: "Finkelstein simulation",
+    cameraHint: "Wrist focus",
+    modelHint: "Blender mp4",
+    playText: "Playing Finkelstein animation.",
+    endedText: "Finkelstein animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M80 39 L67 50"></path>
+      </svg>
+      <div class="sim-force-label examiner finkelstein-examiner-label">Examiner ulnar deviates</div>
+    `
+  },
+  "trendelenburg test": {
+    src: "animations/Hip/trendelenburg-test.mp4",
+    playbackRate: 0.75,
+    caption: "Trendelenburg simulation",
+    cameraHint: "Standing hip view",
+    modelHint: "Blender mp4",
+    playText: "Playing Trendelenburg animation.",
+    endedText: "Trendelenburg animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="trendelenburgFindingArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#7a57d1"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line finding trendelenburg-finding-line" d="M10 30 L30 30"></path>
+      </svg>
+      <div class="sim-force-label finding trendelenburg-patient-label">Positive: contralateral hip drops</div>
+    `
+  },
+  "ober’s test": {
+    src: "animations/Hip/ober-test.mp4",
+    playbackRate: 0.75,
+    caption: "Ober Test simulation",
+    cameraHint: "Lateral hip view",
+    modelHint: "Blender mp4",
+    playText: "Playing Ober Test animation.",
+    endedText: "Ober Test animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M78 34 L78 50"></path>
+      </svg>
+      <div class="sim-force-label examiner ober-examiner-label">Examiner extends then slowly lowers leg</div>
+    `
+  },
+  "thomas test": {
+    src: "animations/Hip/thomas-test.mp4",
+    playbackRate: 0.75,
+    caption: "Thomas Test simulation",
+    cameraHint: "Supine hip view",
+    modelHint: "Blender mp4",
+    playText: "Playing Thomas Test animation.",
+    endedText: "Thomas Test animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="patientArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1ba97f"></path>
+          </marker>
+          <marker id="thomasFindingArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#7a57d1"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line patient" d="M78 32 L64 40"></path>
+        <path class="sim-force-line finding thomas-finding-line" d="M65 80 L65 67"></path>
+      </svg>
+      <div class="sim-force-label patient thomas-patient-label">Patient flexes hip</div>
+      <div class="sim-force-label finding thomas-finding-label">Positive: contralateral thigh flexion</div>
+    `
+  },
+  "lachman": {
+    src: "animations/Knee/lachman-test.mp4",
+    playbackRate: 0.75,
+    caption: "Lachman simulation",
+    cameraHint: "Knee focus",
+    modelHint: "Blender mp4",
+    playText: "Playing Lachman animation.",
+    endedText: "Lachman animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M60 32 L75 25"></path>
+      </svg>
+      <div class="sim-force-label examiner lachman-examiner-label">Examiner pulls tibia forward</div>
+    `
+  },
+  "anterior drawer": {
+    src: "animations/Knee/anterior-drawer-test.mp4",
+    playbackRate: 0.75,
+    caption: "Anterior Drawer simulation",
+    cameraHint: "Knee focus",
+    modelHint: "Blender mp4",
+    playText: "Playing Anterior Drawer animation.",
+    endedText: "Anterior Drawer animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M50 32 L65 25"></path>
+      </svg>
+      <div class="sim-force-label examiner ant-drawer-knee-label">Examiner pulls tibia forward</div>
+    `
+  },
+  "posterior drawer": {
+    src: "animations/Knee/posterior-drawer-test.mp4",
+    playbackRate: 0.75,
+    caption: "Posterior Drawer simulation",
+    cameraHint: "Knee focus",
+    modelHint: "Blender mp4",
+    playText: "Playing Posterior Drawer animation.",
+    endedText: "Posterior Drawer animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M65 25 L50 32"></path>
+      </svg>
+      <div class="sim-force-label examiner post-drawer-knee-label">Examiner pushes tibia back</div>
+    `
+  },
+  "mcmurray (medial)": {
+    src: "animations/Knee/mcmurray-medial.mp4",
+    playbackRate: 0.60,
+    caption: "McMurray Medial simulation",
+    cameraHint: "Knee focus",
+    modelHint: "Blender mp4",
+    playText: "Playing medial McMurray animation.",
+    endedText: "Medial McMurray animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M67 48 L79 55"></path>
+      </svg>
+      <div class="sim-force-label examiner mcmurray-medial-label">Examiner extends with ER + valgus</div>
+    `
+  },
+  "mcmurray (lateral)": {
+    src: "animations/Knee/mcmurray-lateral.mp4",
+    playbackRate: 0.60,
+    caption: "McMurray Lateral simulation",
+    cameraHint: "Knee focus",
+    modelHint: "Blender mp4",
+    playText: "Playing lateral McMurray animation.",
+    endedText: "Lateral McMurray animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M67 70 L79 62"></path>
+      </svg>
+      <div class="sim-force-label examiner mcmurray-lateral-label">Examiner extends with IR + varus</div>
+    `
+  },
+  "anterior drawer (ankle)": {
+    src: "animations/Ankle/anterior-drawer-ankle.mp4",
+    playbackRate: 0.75,
+    caption: "Anterior Drawer Ankle simulation",
+    cameraHint: "Ankle focus",
+    modelHint: "Blender mp4",
+    playText: "Playing anterior drawer ankle animation.",
+    endedText: "Anterior drawer ankle animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M50 72 L65 60"></path>
+      </svg>
+      <div class="sim-force-label examiner ankle-drawer-label">Examiner pulls heel forward</div>
     `
   }
 };
@@ -136,7 +559,7 @@ function showNeutralViewport() {
   viewportEl.appendChild(
     createPlaceholder(
       "Simulation Ready",
-      "Choose a region and then a test. Empty Can will play your Blender mp4 export; other tests stay as placeholders for now."
+      "Choose a region and then a test. The simulation lab only shows tests that already have finished animation assets wired in."
     )
   );
   cameraHintEl.textContent = "Front view";
@@ -149,7 +572,7 @@ function showRegionViewport(regionKey) {
   viewportEl.appendChild(
     createPlaceholder(
       regionName,
-      "Test assets will appear here. Right now this page is set up to preview your Empty Can mp4 export."
+      "Select an animated test from the list to preview the mapped simulation clip and arrow overlay."
     )
   );
   cameraHintEl.textContent = regionKey === "ankle" ? "Ankle focus" : "Front view";
@@ -172,6 +595,7 @@ function showTestVideo(testName, message) {
   video.preload = "auto";
   video.loop = false;
   video.muted = true;
+  video.playbackRate = config.playbackRate || 1;
   video.setAttribute("disablepictureinpicture", "true");
   video.setAttribute("controlslist", "nodownload nofullscreen noremoteplayback");
 
@@ -284,11 +708,11 @@ function renderRegionButtons() {
 
 function renderTests() {
   const exam = window.MSK_EXAMS?.[currentRegion];
-  const tests = exam?.special_tests || [];
+  const tests = (exam?.special_tests || []).filter((test) => TEST_VIDEO_CONFIG[normalizeTestName(testDisplayName(test))]);
 
   if (!tests.length) {
-    testListEl.innerHTML = `<div class="list-group-item">No special tests available for this region.</div>`;
-    testDetailEl.textContent = "No test details available yet for this region.";
+    testListEl.innerHTML = `<div class="list-group-item">No animated tests available for this region yet.</div>`;
+    testDetailEl.textContent = "Only tests with finished animation assets appear in the simulation lab.";
     return;
   }
 
@@ -313,12 +737,7 @@ function renderTests() {
       updateActiveTestButton();
       updateResetButton();
 
-      const normalized = normalizeTestName(testName);
-      if (TEST_VIDEO_CONFIG[normalized]) {
-        showTestVideo(testName);
-      } else {
-        showGenericTestPreview(testName);
-      }
+      showTestVideo(testName);
     });
   });
 
