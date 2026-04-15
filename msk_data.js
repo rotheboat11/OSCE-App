@@ -220,7 +220,7 @@ window.MSK_EXAMS = {
           "Check flexion/extension, abduction/adduction, and external/internal rotation (at the side and, if tolerated, at 90° abduction).",
           "Observe for painful arcs, substitution patterns, and scapulothoracic compensation."
         ],
-        "pearl": "If active ROM is limited but passive ROM is near-normal, think weakness/impingement rather than capsular stiffness."
+        "pearl": "If active ROM is limited but passive ROM is near-normal, think weakness/impingement rather than capsular stiffness (frozen shoulder)."
       },
       {
         "title": "Strength",
@@ -544,6 +544,16 @@ window.MSK_EXAMS = {
       }
     ],
     "special_tests": [
+      {
+        "name": "FABER (SI/hip screen)",
+        "how": [
+          "Place the leg in figure-4 position with the foot resting on the opposite knee.",
+          "Stabilize the pelvis and gently press the flexed knee downward."
+        ],
+        "positive": "Posterior pain suggests SI involvement; groin pain suggests hip involvement.",
+        "pearl": "Pain location matters - posterior pain points more to the SI joint, while groin pain suggests hip pathology.",
+        "image": ""
+      },
       {
         "name": "Thomas Test",
         "how": [
