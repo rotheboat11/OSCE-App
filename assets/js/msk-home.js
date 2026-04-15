@@ -13,14 +13,16 @@ function cardHtml(key, exam) {
 
   return `
     <div class="col-12 col-md-6 mb-3">
-      <div class="card exam-card h-100" role="button" onclick="location.href='${studyHref}'">
-        <div class="card-body d-flex align-items-center">
-          <div class="exam-icon me-2 me-md-3">
-            <img src="${img}" alt="${exam.name}" class="anatomy-image"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-            <div class="fallback-icon" style="display:none; font-size: 2rem;">${window.fallbackEmojiForExam(key)}</div>
-          </div>
-          <div class="flex-grow-1">
+        <div class="card exam-card h-100" role="button" onclick="location.href='${studyHref}'">
+          <div class="card-body d-flex align-items-center">
+            <div class="exam-icon me-2 me-md-3">
+              <div class="anatomy-frame">
+                <img src="${img}" alt="${exam.name}" class="anatomy-image"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="fallback-icon" style="display:none; font-size: 2rem;">${window.fallbackEmojiForExam(key)}</div>
+              </div>
+            </div>
+            <div class="flex-grow-1">
             <h5 class="card-title mb-2">${exam.name}</h5>
             <p class="card-text small mb-2">${exam.description}</p>
             <div class="d-flex gap-2">

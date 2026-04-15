@@ -685,13 +685,23 @@ window.MSK_EXAMS = {
         "image": ""
       },
       {
-        "name": "Valgus/Varus Stress",
+        "name": "Valgus Stress",
         "how": [
-          "With knee at ~30° flexion, apply valgus force to test MCL and varus force to test LCL.",
+          "With knee at ~30° flexion, apply a valgus force to stress the MCL.",
           "Compare laxity and end-feel to the other side."
         ],
-        "positive": "Excess gapping or laxity compared with contralateral side (suggesting collateral ligament injury).",
-        "pearl": "Testing at ~30° isolates the collaterals better than full extension.",
+        "positive": "Excess medial gapping or laxity compared with the contralateral side (suggesting MCL injury).",
+        "pearl": "Testing at ~30° flexion isolates the MCL better than full extension.",
+        "image": ""
+      },
+      {
+        "name": "Varus Stress",
+        "how": [
+          "With knee at ~30° flexion, apply a varus force to stress the LCL.",
+          "Compare laxity and end-feel to the other side."
+        ],
+        "positive": "Excess lateral gapping or laxity compared with the contralateral side (suggesting LCL injury).",
+        "pearl": "Use a gentle but clear varus force so you assess true end-feel rather than provoking non-specific pain.",
         "image": ""
       }
     ]

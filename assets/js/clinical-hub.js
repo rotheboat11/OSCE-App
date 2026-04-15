@@ -1,10 +1,6 @@
 const hubOrder = [
   "cardiovascular",
-  "respiratory",
-  "gastrointestinal",
-  "neurology",
-  "psychiatry",
-  "history_taking"
+  "respiratory"
 ];
 
 const hubGrid = document.getElementById("hubGrid");

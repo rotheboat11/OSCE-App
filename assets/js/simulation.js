@@ -96,7 +96,7 @@ const TEST_VIDEO_CONFIG = {
   },
   "drop arm test": {
     src: "animations/Shoulder/drop-test.mp4",
-    playbackRate: 0.75,
+    playbackRate: 0.55,
     caption: "Drop Arm simulation",
     cameraHint: "Anterior-oblique view",
     modelHint: "Blender mp4",
@@ -221,7 +221,7 @@ const TEST_VIDEO_CONFIG = {
             <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
           </marker>
         </defs>
-        <path class="sim-force-line examiner" d="M45 18 L38 33"></path>
+        <path class="sim-force-line examiner" d="M35 30 L28 45"></path>
       </svg>
       <div class="sim-force-label examiner faber-examiner-label">Examiner pushes knee</div>
     `
@@ -242,7 +242,7 @@ const TEST_VIDEO_CONFIG = {
           </marker>
         </defs>
         <path class="sim-force-line examiner" d="M100 30 L80 30"></path>
-        <path class="sim-force-line examiner" d="M20 48 L20 31"></path>
+        <path class="sim-force-line examiner" d="M10 48 L10 31"></path>
       </svg>
       <div class="sim-force-label examiner femoral-examiner-label">Examiner flexes knee</div>
       <div class="sim-force-label examiner femoral-hip-label">Examiner then extends hip</div>
@@ -266,6 +266,98 @@ const TEST_VIDEO_CONFIG = {
         <path class="sim-force-line examiner" d="M65 47 L65 67"></path>
       </svg>
       <div class="sim-force-label examiner tinel-elbow-label">Examiner taps ulnar nerve</div>
+    `
+  },
+  "cozen’s (tennis elbow) test": {
+    src: "animations/Elbow/cozen-test.mp4",
+    playbackRate: 0.75,
+    caption: "Cozen Test simulation",
+    cameraHint: "Elbow focus",
+    modelHint: "Blender mp4",
+    playText: "Playing Cozen test animation.",
+    endedText: "Cozen test animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="patientArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1ba97f"></path>
+          </marker>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line patient" d="M70 46 L55 35"></path>
+        <path class="sim-force-line examiner" d="M45 40 L60 51"></path>
+      </svg>
+      <div class="sim-force-label patient cozen-patient-label">Patient extends wrist</div>
+      <div class="sim-force-label examiner cozen-label">Examiner resists wrist extension</div>
+    `
+  },
+  "golfer’s elbow (resisted wrist flexion)": {
+    src: "animations/Elbow/golfer-test.mp4",
+    playbackRate: 0.75,
+    caption: "Golfer’s Elbow simulation",
+    cameraHint: "Elbow focus",
+    modelHint: "Blender mp4",
+    playText: "Playing golfer’s elbow animation.",
+    endedText: "Golfer’s elbow animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="patientArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#1ba97f"></path>
+          </marker>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line patient" d="M68 40 L53 30"></path>
+        <path class="sim-force-line examiner" d="M42 35 L57 45"></path>
+      </svg>
+      <div class="sim-force-label patient golfer-patient-label">Patient flexes wrist</div>
+      <div class="sim-force-label examiner golfer-label">Examiner resists wrist flexion</div>
+    `
+  },
+  "valgus stress (mcl/ucl)": {
+    src: "animations/Elbow/valgus-test.mp4",
+    playbackRate: 0.75,
+    caption: "Elbow Valgus Stress simulation",
+    cameraHint: "Elbow focus",
+    modelHint: "Blender mp4",
+    playText: "Playing elbow valgus stress animation.",
+    endedText: "Elbow valgus stress animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M73 78 L58 74"></path>
+        <path class="sim-force-line examiner" d="M25 37 L40 43"></path>
+      </svg>
+      <div class="sim-force-label examiner elbow-valgus-label">Examiner applies valgus stress</div>
+    `
+  },
+  "varus stress (lcl)": {
+    src: "animations/Elbow/varus-test.mp4",
+    playbackRate: 0.75,
+    caption: "Elbow Varus Stress simulation",
+    cameraHint: "Elbow focus",
+    modelHint: "Blender mp4",
+    playText: "Playing elbow varus stress animation.",
+    endedText: "Elbow varus stress animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M82 49 L67 47"></path>
+        <path class="sim-force-line examiner" d="M25 70 L40 72"></path>
+      </svg>
+      <div class="sim-force-label examiner elbow-varus-label">Examiner applies varus stress</div>
     `
   },
   "phalen": {
@@ -304,7 +396,7 @@ const TEST_VIDEO_CONFIG = {
             <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
           </marker>
         </defs>
-        <path class="sim-force-line examiner" d="M67 66 L52 66"></path>
+        <path class="sim-force-line examiner" d="M67 70 L52 70"></path>
       </svg>
       <div class="sim-force-label examiner tinel-wrist-label">Examiner taps median nerve</div>
     `
@@ -492,6 +584,48 @@ const TEST_VIDEO_CONFIG = {
         <path class="sim-force-line examiner" d="M67 70 L79 62"></path>
       </svg>
       <div class="sim-force-label examiner mcmurray-lateral-label">Examiner extends with IR + varus</div>
+    `
+  },
+  "valgus stress": {
+    src: "animations/Knee/valgus-knee.mp4",
+    playbackRate: 0.75,
+    caption: "Knee Valgus Stress simulation",
+    cameraHint: "Knee focus",
+    modelHint: "Blender mp4",
+    playText: "Playing knee valgus stress animation.",
+    endedText: "Knee valgus stress animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M75 49 L62 45"></path>
+        <path class="sim-force-line examiner" d="M26 20 L43 22"></path>
+      </svg>
+      <div class="sim-force-label examiner knee-valgus-label">Examiner applies valgus stress</div>
+    `
+  },
+  "varus stress": {
+    src: "animations/Knee/varus-knee.mp4",
+    playbackRate: 0.75,
+    caption: "Knee Varus Stress simulation",
+    cameraHint: "Knee focus",
+    modelHint: "Blender mp4",
+    playText: "Playing knee varus stress animation.",
+    endedText: "Knee varus stress animation complete. Click Replay to watch it again.",
+    forceOverlay: `
+      <svg class="sim-force-svg" viewBox="0 0 100 100" aria-hidden="true">
+        <defs>
+          <marker id="examinerArrowHead" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+            <path d="M0,0 L8,4 L0,8 Z" fill="#d94b52"></path>
+          </marker>
+        </defs>
+        <path class="sim-force-line examiner" d="M25 38 L40 42"></path>
+        <path class="sim-force-line examiner" d="M79 20 L64 22"></path>
+      </svg>
+      <div class="sim-force-label examiner knee-varus-label">Examiner applies varus stress</div>
     `
   },
   "anterior drawer (ankle)": {
@@ -711,8 +845,8 @@ function renderTests() {
   const tests = (exam?.special_tests || []).filter((test) => TEST_VIDEO_CONFIG[normalizeTestName(testDisplayName(test))]);
 
   if (!tests.length) {
-    testListEl.innerHTML = `<div class="list-group-item">No animated tests available for this region yet.</div>`;
-    testDetailEl.textContent = "Only tests with finished animation assets appear in the simulation lab.";
+    testListEl.innerHTML = `<div class="list-group-item">No animated tests available for this region.</div>`;
+    testDetailEl.textContent = "N/A";
     return;
   }
 

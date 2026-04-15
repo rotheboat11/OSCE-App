@@ -316,8 +316,8 @@ body {
 }
 
 .sim-force-label.examiner.faber-examiner-label {
-  top: 13.5%;
-  right: 45%;
+  top: 25%;
+  right: 52%;
 }
 
 .sim-force-label.examiner.femoral-examiner-label {
@@ -327,12 +327,44 @@ body {
 
 .sim-force-label.examiner.femoral-hip-label {
   top: 50%;
-  right: 63.5%;
+  right: 72%;
 }
 
 .sim-force-label.examiner.tinel-elbow-label {
   top: 42.5%;
   right: 25.5%;
+}
+
+.sim-force-label.examiner.cozen-label {
+  top: 54%;
+  right: 33%;
+}
+
+.sim-force-label.patient.cozen-patient-label {
+  top: 40%;
+  right: 15%;
+  left: auto;
+}
+
+.sim-force-label.examiner.golfer-label {
+  top: 48%;
+  right: 40%;
+}
+
+.sim-force-label.patient.golfer-patient-label {
+  top: 30%;
+  right: 25%;
+  left: auto;
+}
+
+.sim-force-label.examiner.elbow-valgus-label {
+  top: 32%;
+  right: 59%;
+}
+
+.sim-force-label.examiner.elbow-varus-label {
+  top: 53%;
+  right: 10%;
 }
 
 .sim-force-label.patient.phalen-patient-label {
@@ -341,7 +373,7 @@ body {
 }
 
 .sim-force-label.examiner.tinel-wrist-label {
-  top: 64%;
+  top: 68%;
   right: 9.5%;
 }
 
@@ -396,6 +428,16 @@ body {
 .sim-force-label.examiner.mcmurray-lateral-label {
   top: 70%;
   right: 6%;
+}
+
+.sim-force-label.examiner.knee-valgus-label {
+  top: 51%;
+  right: 16%;
+}
+
+.sim-force-label.examiner.knee-varus-label {
+  top: 31%;
+  right: 55%;
 }
 
 .sim-force-label.examiner.ankle-drawer-label {

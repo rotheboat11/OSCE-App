@@ -1,14 +1,14 @@
 window.EXAM_IMAGES = {
-  general_msk: "static/Skeleton.jpg",
-  cervical_spine: "static/Spine.jpg",
-  lumbar_spine: "static/Spine.jpg",
-  shoulder: "static/ShoulderImage.jpg",
-  elbow: "static/ElbowImage.jpg",
-  wrist_hand: "static/WristImage.jpg",
-  hip: "static/HipImage.jpeg",
-  knee: "static/KneeImage.jpg",
-  ankle: "static/AnkleImage.jpeg",
-  neurological_asia: "static/Neurological.jpeg"
+  general_msk: "static/Skeleton.png",
+  cervical_spine: "static/CervicalSpine.png",
+  lumbar_spine: "static/LumbarSpine.png",
+  shoulder: "static/ShoulderImage.png",
+  elbow: "static/ElbowImage.png",
+  wrist_hand: "static/WristImage.png",
+  hip: "static/HipImage.png",
+  knee: "static/KneeImage.png",
+  ankle: "static/AnkleImage.png",
+  neurological_asia: "static/Neurological.png"
 };
 
 window.fallbackEmojiForExam = (key) => {

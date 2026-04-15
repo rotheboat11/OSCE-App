@@ -1,6 +1,9 @@
 const moduleParams = new URLSearchParams(window.location.search);
 const moduleKey = moduleParams.get("module");
-const moduleData = moduleKey ? window.INTERNAL_MODULES?.[moduleKey] : null;
+const RELEASED_INTERNAL_MODULES = ["cardiovascular", "respiratory"];
+const moduleData = moduleKey && RELEASED_INTERNAL_MODULES.includes(moduleKey)
+  ? window.INTERNAL_MODULES?.[moduleKey]
+  : null;
 
 const titleEl = document.getElementById("moduleTitle");
 const descriptionEl = document.getElementById("moduleDescription");
@@ -8,11 +11,11 @@ const gridEl = document.getElementById("moduleGrid");
 
 if (!moduleData) {
   titleEl.textContent = "Module Not Found";
-  descriptionEl.textContent = "Go back to the title screen and choose a valid module.";
+  descriptionEl.textContent = "This module is not available in the current release.";
   gridEl.innerHTML = `
     <div class="col-12">
       <div class="alert alert-danger mb-0">
-        Invalid module selection. Return to <a href="title.html">Title Screen</a>.
+        This module is currently hidden. Return to <a href="title.html">Title Screen</a>.
       </div>
     </div>
   `;
