@@ -70,7 +70,7 @@ function makeDrops(arr, emptyNote, numberItems = false) {
 
         const bodyInner =
           `${imgHtml}${detailHtml}${howHtml}${positiveHtml}${pearlHtml}`.trim() ||
-          `<div class="msk-muted">No details added yet.</div>`;
+          `<div class="msk-muted">N/A.</div>`;
         return `<details class="msk-drop"><summary>${summaryText}</summary><div class="msk-drop-body">${bodyInner}</div></details>`;
       }
 
@@ -83,7 +83,7 @@ function makeDrops(arr, emptyNote, numberItems = false) {
 
       const bodyInner = detail
         ? `${escapeHtml(detail)}`
-        : `<div class="msk-muted">No details added yet. (Tip: you can write items like <code>Test Name - what it assesses + how to do it</code>.)</div>`;
+        : `<div class="msk-muted">N/A. (Tip: you can write items like <code>Test Name - what it assesses + how to do it</code>.)</div>`;
 
       return `<details class="msk-drop"><summary>${summaryText}</summary><div class="msk-drop-body">${bodyInner}</div></details>`;
     })
@@ -97,8 +97,8 @@ if (!exam) {
       <p class="mb-0">Go back to <a href="msk.html">MSK Home</a>.</p>
     </div>`;
 } else {
-  const steps = makeDrops(exam.steps, "No steps available for this exam yet.", true);
-  const tests = makeDrops(exam.special_tests, "No special tests listed for this exam yet.", false);
+  const steps = makeDrops(exam.steps, "N/A.", true);
+  const tests = makeDrops(exam.special_tests, "N/A.", false);
 
   el.innerHTML = `
     <div class="row">

@@ -9,7 +9,7 @@ window.MSK_EXAMS = {
           "Observe posture, gait, symmetry, and obvious deformities.",
           "Scan for swelling, erythema, or muscle wasting."
         ],
-        "pearl": "A quick gait watch often reveals the most important clue—don’t skip it."
+        "pearl": "A quick gait watch often reveals the most important clue - don’t skip it."
       },
       {
         "title": "Look",
@@ -17,7 +17,7 @@ window.MSK_EXAMS = {
           "Inspect key regions (hands, elbows, shoulders, spine, hips, knees, ankles/feet).",
           "Compare sides and note deformity or swelling."
         ],
-        "pearl": "Hands are high-yield for inflammatory arthritis signs—look carefully."
+        "pearl": "Hands are high-yield for inflammatory arthritis signs - look carefully."
       },
       {
         "title": "Feel",
@@ -25,7 +25,7 @@ window.MSK_EXAMS = {
           "Palpate where symptomatic and check for warmth or tenderness.",
           "If swelling present, characterize whether it’s joint vs soft tissue."
         ],
-        "pearl": "Warmth + swelling shifts you toward inflammatory/infectious causes—take it seriously."
+        "pearl": "Warmth + swelling shifts you toward inflammatory/infectious causes - take it seriously."
       },
       {
         "title": "Move",
@@ -38,10 +38,10 @@ window.MSK_EXAMS = {
       {
         "title": "Targeted Follow-up",
         "how": [
-          "If screen is abnormal, move to region-specific exam (your other tabs).",
+          "If screen is abnormal, move to region-specific exam.",
           "Document what was abnormal and why you escalated."
         ],
-        "pearl": "A screen isn’t the end—it’s a triage tool to focus your detailed exam."
+        "pearl": "A screen isn’t the end - it’s a triage tool to focus your detailed exam."
       }
     ],
     "special_tests": []
@@ -64,7 +64,7 @@ window.MSK_EXAMS = {
           "Palpate midline spinous processes and paraspinal muscles.",
           "Assess for focal tenderness and muscle spasm."
         ],
-        "pearl": "Midline bony tenderness after trauma is a red flag—don’t aggressively mobilize."
+        "pearl": "Midline bony tenderness after trauma is a red flag - don’t aggressively mobilize."
       },
       {
         "title": "Range of Motion",
@@ -80,7 +80,7 @@ window.MSK_EXAMS = {
           "Screen sensation in key dermatomes and strength in key myotomes.",
           "Check reflexes if symptoms suggest radiculopathy."
         ],
-        "pearl": "Symptoms past the elbow or paresthesias raise suspicion for nerve involvement—pair exam with history."
+        "pearl": "Symptoms past the elbow or paresthesias raise suspicion for nerve involvement - pair exam with history."
       },
       {
         "title": "Provocative / Safety Tests (as indicated)",
@@ -88,7 +88,7 @@ window.MSK_EXAMS = {
           "Use nerve root provocation or distraction tests when radicular symptoms exist.",
           "Avoid high-risk maneuvers if vertebrobasilar symptoms are suspected."
         ],
-        "pearl": "Only do special tests when indicated—don’t provoke unnecessary symptoms in a straightforward neck strain."
+        "pearl": "Only do special tests when indicated - don’t provoke unnecessary symptoms in a straightforward neck strain."
       }
     ],
     "special_tests": [
@@ -99,7 +99,7 @@ window.MSK_EXAMS = {
           "Apply gentle axial compression."
         ],
         "positive": "Reproduction of radicular arm pain/paresthesia (suggesting cervical radiculopathy).",
-        "pearl": "Radicular symptoms are more meaningful than neck pain alone—use gentle pressure.",
+        "pearl": "Radicular symptoms are more meaningful than neck pain alone - use gentle pressure.",
         "image": ""
       }
     ]
@@ -114,7 +114,7 @@ window.MSK_EXAMS = {
           "Inspect posture, lumbar curvature, pelvic tilt, and symmetry.",
           "Observe gait and ease of sitting/standing."
         ],
-        "pearl": "Watch the sit-to-stand—guarding or pain behavior can guide your exam intensity."
+        "pearl": "Watch the sit-to-stand - guarding or pain behavior can guide your exam intensity."
       },
       {
         "title": "Palpation",
@@ -122,7 +122,7 @@ window.MSK_EXAMS = {
           "Palpate midline spinous processes and paraspinal muscles.",
           "Assess SI region if posterior pelvic pain is reported."
         ],
-        "pearl": "Focal midline tenderness after trauma is a red flag—avoid aggressive testing."
+        "pearl": "Focal midline tenderness after trauma is a red flag - avoid aggressive testing."
       },
       {
         "title": "Range of Motion",
@@ -138,7 +138,7 @@ window.MSK_EXAMS = {
           "Screen key dermatomes, myotomes, and reflexes when indicated.",
           "Assess straight-leg raise if radicular symptoms present."
         ],
-        "pearl": "If there’s true weakness or bowel/bladder symptoms, escalate—don’t just document."
+        "pearl": "If there’s true weakness or bowel/bladder symptoms, escalate - don’t just document."
       },
       {
         "title": "Functional / Red Flags",
@@ -146,7 +146,7 @@ window.MSK_EXAMS = {
           "Ask about red flags (night pain, weight loss, fever, saddle anesthesia, bowel/bladder changes).",
           "Consider functional tasks only if safe."
         ],
-        "pearl": "A clean neuro exam doesn’t rule out serious disease—red flags come from history + exam together."
+        "pearl": "A clean neuro exam doesn’t rule out serious disease - red flags come from history + exam together."
       }
     ],
     "special_tests": [
@@ -157,7 +157,7 @@ window.MSK_EXAMS = {
           "Note angle and symptom reproduction; compare sides."
         ],
         "positive": "Reproduction of radicular pain down the leg (suggesting nerve root irritation).",
-        "pearl": "Back/hamstring tightness is not the same as radicular pain—ask where the pain travels.",
+        "pearl": "Back/hamstring tightness is not the same as radicular pain - ask where the pain travels.",
         "image": ""
       },
       {
@@ -167,7 +167,7 @@ window.MSK_EXAMS = {
           "Ask about anterior thigh pain."
         ],
         "positive": "Anterior thigh pain (suggesting upper lumbar nerve root irritation).",
-        "pearl": "Different pain pattern than SLR—think L2–L4 involvement.",
+        "pearl": "Different pain pattern than SLR - think L2–L4 involvement.",
         "image": ""
       },
       {
@@ -177,7 +177,7 @@ window.MSK_EXAMS = {
           "Ask patient to localize pain."
         ],
         "positive": "Posterior pain suggests SI involvement; groin pain suggests hip involvement.",
-        "pearl": "Localization matters—posterior vs anterior changes your differential.",
+        "pearl": "Localization matters - posterior vs anterior changes your differential.",
         "image": ""
       },
       {
@@ -203,7 +203,7 @@ window.MSK_EXAMS = {
           "Look for asymmetry, swelling, bruising, scars, deformity, and muscle wasting (deltoid/supraspinatus/infraspinatus).",
           "Note posture and scapular position/winging during relaxed standing."
         ],
-        "pearl": "Always compare with the unaffected side—subtle atrophy and asymmetry are easiest to spot side-by-side."
+        "pearl": "Always compare with the unaffected side - subtle atrophy and asymmetry are easiest to spot side-by-side."
       },
       {
         "title": "Palpation",
@@ -257,7 +257,7 @@ window.MSK_EXAMS = {
           "Passively forward-flex the internally rotated arm (thumb down) overhead."
         ],
         "positive": "Pain near end-range forward flexion, suggesting impingement.",
-        "pearl": "Scapular stabilization matters—without it you may miss or falsely provoke symptoms.",
+        "pearl": "Scapular stabilization matters - without it you may miss or falsely provoke symptoms.",
         "image": ""
       },
       {
@@ -317,7 +317,7 @@ window.MSK_EXAMS = {
           "Watch for apprehension suggesting instability and stop early if the patient becomes guarded."
         ],
         "positive": "Apprehension (not just pain) with external rotation, suggesting shoulder instability/dislocation tendency.",
-        "pearl": "Move slowly and stop when the patient feels apprehension—don’t force a dislocation.",
+        "pearl": "Move slowly and stop when the patient feels apprehension - don’t force a dislocation.",
         "image": ""
       }
     ]
@@ -332,7 +332,7 @@ window.MSK_EXAMS = {
           "Inspect for swelling, erythema, bruising, scars, deformity, and carrying angle asymmetry.",
           "Look for olecranon swelling (bursitis) and muscle wasting."
         ],
-        "pearl": "Olecranon bursitis can be obvious visually—look before you press hard."
+        "pearl": "Olecranon bursitis can be obvious visually - look before you press hard."
       },
       {
         "title": "Palpation",
@@ -348,7 +348,7 @@ window.MSK_EXAMS = {
           "Check flexion/extension and pronation/supination.",
           "Note pain and end-feel; compare sides."
         ],
-        "pearl": "Loss of extension can be subtle but functionally important—compare to the other side."
+        "pearl": "Loss of extension can be subtle but functionally important - compare to the other side."
       },
       {
         "title": "Strength",
@@ -364,7 +364,7 @@ window.MSK_EXAMS = {
           "Screen ulnar nerve symptoms (ring/small finger), plus median/radial if indicated.",
           "Consider Tinel at cubital tunnel if ulnar symptoms."
         ],
-        "pearl": "Cubital tunnel symptoms often worsen with prolonged elbow flexion—ask about night symptoms."
+        "pearl": "Cubital tunnel symptoms often worsen with prolonged elbow flexion - ask about night symptoms."
       }
     ],
     "special_tests": [
@@ -446,7 +446,7 @@ window.MSK_EXAMS = {
           "Assess wrist flexion/extension, radial/ulnar deviation, and finger ROM.",
           "Compare sides and note pain pattern."
         ],
-        "pearl": "Loss of wrist extension can significantly limit function—document it clearly."
+        "pearl": "Loss of wrist extension can significantly limit function - document it clearly."
       },
       {
         "title": "Strength",
@@ -462,7 +462,7 @@ window.MSK_EXAMS = {
           "Screen sensation in median/ulnar/radial distributions as indicated.",
           "Ask about functional limitations (buttoning, writing, opening jars)."
         ],
-        "pearl": "Functional complaints often map cleanly onto nerve distributions—use them to guide focused testing."
+        "pearl": "Functional complaints often map cleanly onto nerve distributions - use them to guide focused testing."
       }
     ],
     "special_tests": [
@@ -473,7 +473,7 @@ window.MSK_EXAMS = {
           "Ask about paresthesias in median nerve distribution."
         ],
         "positive": "Tingling/numbness in thumb/index/middle (suggesting carpal tunnel syndrome).",
-        "pearl": "Symptoms often appear before 60 seconds in moderate cases—note time to onset.",
+        "pearl": "Symptoms often appear before 60 seconds in moderate cases - note time to onset.",
         "image": ""
       },
       {
@@ -493,7 +493,7 @@ window.MSK_EXAMS = {
           "Ulnar-deviate the wrist (or have patient do it)."
         ],
         "positive": "Pain over radial styloid (suggesting de Quervain tenosynovitis).",
-        "pearl": "Do gently—this can be very painful and patients may guard.",
+        "pearl": "Do gently - this can be very painful and patients may guard.",
         "image": ""
       }
     ]
@@ -532,7 +532,7 @@ window.MSK_EXAMS = {
           "Test hip flexion, extension, abduction, adduction against resistance.",
           "Consider single-leg stance or a brief Trendelenburg check if safe."
         ],
-        "pearl": "Hip abductor weakness is common and clinically meaningful—don’t skip it."
+        "pearl": "Hip abductor weakness is common and clinically meaningful - don’t skip it."
       },
       {
         "title": "Neurovascular / Referred Pain Screen",
@@ -540,7 +540,7 @@ window.MSK_EXAMS = {
           "If symptoms radiate or are posterior, consider a quick lumbar screen (SLR, neuro check).",
           "Check distal pulses/sensation if clinically relevant."
         ],
-        "pearl": "Groin pain points more intra-articular; posterior pain can be spine/SI-related—pattern matters."
+        "pearl": "Groin pain points more intra-articular; posterior pain can be spine/SI-related - pattern matters."
       }
     ],
     "special_tests": [
@@ -571,7 +571,7 @@ window.MSK_EXAMS = {
           "Extend and abduct the hip, then allow it to adduct toward the table."
         ],
         "positive": "Leg remains abducted (suggesting IT band/TFL tightness).",
-        "pearl": "Pelvic stabilization is key—otherwise you test the pelvis, not the IT band.",
+        "pearl": "Pelvic stabilization is key - otherwise you test the pelvis, not the IT band.",
         "image": ""
       }
     ]
@@ -620,7 +620,7 @@ window.MSK_EXAMS = {
           "Test collateral ligaments (valgus/varus stress) and cruciates (Lachman/anterior drawer).",
           "Consider a simple functional task if safe (e.g., squat, single-leg stance)."
         ],
-        "pearl": "Do Lachman early if ACL injury suspected—large effusions and guarding can make later testing harder."
+        "pearl": "Do Lachman early if ACL injury suspected - large effusions and guarding can make later testing harder."
       }
     ],
     "special_tests": [
@@ -631,7 +631,7 @@ window.MSK_EXAMS = {
           "Pull the proximal tibia anteriorly with the other hand."
         ],
         "positive": "Increased anterior translation and/or a soft end-point compared with the other side (suggesting ACL injury).",
-        "pearl": "A soft end-point is often more important than the absolute amount of translation—compare sides.",
+        "pearl": "A soft end-point is often more important than the absolute amount of translation - compare sides.",
         "image": ""
       },
       {
@@ -641,7 +641,7 @@ window.MSK_EXAMS = {
           "Pull the tibia anteriorly while keeping hamstrings relaxed."
         ],
         "positive": "Excess anterior translation compared to the other side (suggesting ACL injury).",
-        "pearl": "Hamstring guarding can cause false negatives—ask the patient to relax and ensure the tibia starts neutral.",
+        "pearl": "Hamstring guarding can cause false negatives - ask the patient to relax and ensure the tibia starts neutral.",
         "image": ""
       },
       {
@@ -724,7 +724,7 @@ window.MSK_EXAMS = {
           "Palpate malleoli, ATFL/CFL regions, base of 5th metatarsal, navicular, Achilles tendon, plantar fascia.",
           "Check pulses and temperature if needed."
         ],
-        "pearl": "Point tenderness over bony landmarks is a red flag for fracture—don’t skip this."
+        "pearl": "Point tenderness over bony landmarks is a red flag for fracture - don’t skip this."
       },
       {
         "title": "Range of Motion",
@@ -748,7 +748,7 @@ window.MSK_EXAMS = {
           "Observe gait, toe walk/heel walk (if tolerated).",
           "Consider balance and hop test only if appropriate."
         ],
-        "pearl": "Functional tests are useful once acute pain has settled—don’t provoke unnecessary setbacks early."
+        "pearl": "Functional tests are useful once acute pain has settled - don’t provoke unnecessary setbacks early."
       }
     ],
     "special_tests": [
@@ -759,7 +759,7 @@ window.MSK_EXAMS = {
           "Cup the calcaneus and draw the talus anteriorly."
         ],
         "positive": "Excess anterior translation compared with the other side (suggesting ATFL injury).",
-        "pearl": "Test gently—guarding is common in acute sprains; compare sides.",
+        "pearl": "Test gently - guarding is common in acute sprains; compare sides.",
         "image": ""
       },
       {
@@ -785,7 +785,7 @@ window.MSK_EXAMS = {
           "Compare right vs left throughout.",
           "If there are red flags (rapid progression, bowel/bladder change, saddle numbness), prioritize escalation over completing every step."
         ],
-        "pearl": "A focused neuro screen is fine for most MSK complaints—reserve the full ASIA-style exam for concerning findings or neuro symptoms."
+        "pearl": "A focused neuro screen is fine for most MSK complaints - reserve the full ASIA-style exam for concerning findings or neuro symptoms."
       },
       {
         "title": "Motor Screen: Key Myotomes",
@@ -803,16 +803,16 @@ window.MSK_EXAMS = {
           "Cervical/upper limb landmarks: C2 behind ear; C3 upper neck; C4 upper shoulder; C5 lateral upper arm; C6 lateral forearm; C7 middle finger/posterior arm; C8 medial forearm; T1 medial upper arm/axilla.",
           "Trunk/lower limb landmarks: L1 groin; L2 medial mid-thigh; L3 medial knee; L4 medial malleolus; L5 anterior ankle; S1 lateral malleolus; S2 posterior knee; S3 posterior heel; S4–S5 saddle area."
         ],
-        "pearl": "When sensory changes don’t respect dermatomes, consider peripheral nerve patterns—or non-neurologic causes—before over-calling radiculopathy."
+        "pearl": "When sensory changes don’t respect dermatomes, consider peripheral nerve patterns - or non-neurologic causes - before over-calling radiculopathy."
       },
       {
         "title": "Reflexes (as indicated)",
         "how": [
           "Check deep tendon reflexes when symptoms suggest radiculopathy or UMN signs.",
-          "Common lower limb pair: patellar (L3/L4—mainly L4) and Achilles (S1/S2—mainly S1).",
+          "Common lower limb pair: patellar (L3/L4 - mainly L4) and Achilles (S1/S2 - mainly S1).",
           "For upper limb complaints, consider biceps/brachioradialis/triceps depending on your local teaching."
         ],
-        "pearl": "Reflex asymmetry is often more meaningful than “brisk” reflexes in isolation—always compare sides."
+        "pearl": "Reflex asymmetry is often more meaningful than “brisk” reflexes in isolation - always compare sides."
       },
       {
         "title": "Upper Motor Neuron Screen",
@@ -828,7 +828,7 @@ window.MSK_EXAMS = {
           "Ask about saddle numbness and bowel/bladder changes.",
           "If warranted, include perianal sensation and rectal tone/voluntary anal contraction per your clinical setting and supervision."
         ],
-        "pearl": "Don’t bury cauda equina red flags inside a long exam—if suspected, escalate immediately."
+        "pearl": "Don’t bury cauda equina red flags inside a long exam - if suspected, escalate immediately."
       }
     ],
     "special_tests": [
@@ -839,7 +839,7 @@ window.MSK_EXAMS = {
           "Use a 0–5 grading approach: 0 no movement; 3 against gravity; 5 full resistance."
         ],
         "positive": "A focal deficit (e.g., clear weakness in a key myotome compared to the other side).",
-        "pearl": "Write the level and side (e.g., “L4 dorsiflexion 3/5 R”)—that single line is incredibly clinically useful.",
+        "pearl": "Write the level and side (e.g., “L4 dorsiflexion 3/5 R”) - that single line is incredibly clinically useful.",
         "image": ""
       },
       {
