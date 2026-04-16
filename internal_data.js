@@ -76,9 +76,9 @@ window.INTERNAL_MODULES = {
           {
             title: "Auscultation",
             how: [
-              "**Aortic bruit:** between the umbilicus and xiphoid process, approximates aortic bifurcation",
-              "**Renal bruit:** 5cm above the umbilicus and 3cm to the left/right",
-              "**Femoral bruit:** lateral corner of pubic triangle"
+              "**Aortic bruit:** Just above the umbilicus in the midline",
+              "**Renal bruit:** A few cm above the umbilicus and slightly left/right",
+              "**Femoral bruit:** Mid-inguinal area (between ASIS and pubic symphysis)"
             ],
             pearl: "Naming the exact bruit locations makes the exam feel much more deliberate."
           },
