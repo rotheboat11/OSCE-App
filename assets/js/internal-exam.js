@@ -1,17 +1,43 @@
 const params = new URLSearchParams(window.location.search);
 const moduleKey = params.get("module");
+const submoduleKey = params.get("submodule");
 const examKey = params.get("exam");
-const RELEASED_INTERNAL_MODULES = ["cardiovascular", "respiratory"];
-const moduleData = moduleKey && RELEASED_INTERNAL_MODULES.includes(moduleKey)
+const RELEASED_INTERNAL_MODULES = ["cardiovascular", "respiratory", "gastrointestinal", "neurology", "psychiatry"];
+const rootModuleData = moduleKey && RELEASED_INTERNAL_MODULES.includes(moduleKey)
   ? window.INTERNAL_MODULES?.[moduleKey]
   : null;
-const exam = examKey ? moduleData?.exams?.[examKey] : null;
 
 const contentEl = document.getElementById("content");
 const moduleHomeLink = document.getElementById("moduleHomeLink");
 
+function findExamRecord(moduleData, targetExamKey) {
+  if (!moduleData || !targetExamKey) return null;
+
+  if (moduleData.exams?.[targetExamKey]) {
+    return {
+      exam: moduleData.exams[targetExamKey],
+      submoduleKey: null
+    };
+  }
+
+  for (const [childKey, child] of Object.entries(moduleData.submodules || {})) {
+    if (child?.exams?.[targetExamKey]) {
+      return {
+        exam: child.exams[targetExamKey],
+        submoduleKey: childKey
+      };
+    }
+  }
+
+  return null;
+}
+
+const resolvedExamRecord = findExamRecord(rootModuleData, examKey);
+const exam = resolvedExamRecord?.exam || null;
+const resolvedSubmoduleKey = submoduleKey || resolvedExamRecord?.submoduleKey || null;
+
 if (moduleHomeLink && moduleKey) {
-  moduleHomeLink.href = `module.html?module=${encodeURIComponent(moduleKey)}`;
+  moduleHomeLink.href = `module.html?module=${encodeURIComponent(moduleKey)}${resolvedSubmoduleKey ? `&submodule=${encodeURIComponent(resolvedSubmoduleKey)}` : ""}`;
 }
 
 const escapeHtml = (str) =>
@@ -24,8 +50,9 @@ function formatInline(str) {
   return escapeHtml(str)
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/\[\[(.+?)\|(.+?)\]\]/g, (_, label, targetExam) => {
-      if (!moduleKey) return label;
-      const href = `internal_exam.html?module=${encodeURIComponent(moduleKey)}&exam=${encodeURIComponent(targetExam)}`;
+      if (!moduleKey || !rootModuleData) return label;
+      const targetRecord = findExamRecord(rootModuleData, targetExam);
+      const href = `internal_exam.html?module=${encodeURIComponent(moduleKey)}${targetRecord?.submoduleKey ? `&submodule=${encodeURIComponent(targetRecord.submoduleKey)}` : ""}&exam=${encodeURIComponent(targetExam)}`;
       return `<a href="${href}" class="msk-inline-link">${label}</a>`;
     });
 }
@@ -79,7 +106,7 @@ function renderSection(title, items, emptyNote, numberItems = false, colClass = 
   `;
 }
 
-if (!moduleData || !exam) {
+if (!rootModuleData || !exam) {
   contentEl.innerHTML = `
     <div class="alert alert-danger">
       <h4 class="mb-2">Exam not found</h4>
@@ -93,11 +120,30 @@ if (!moduleData || !exam) {
   const focusHtml = hasFocus
     ? `<ul class="mb-0">${exam.focus_points.map((point) => `<li>${formatInline(point)}</li>`).join("")}</ul>`
     : "";
-  const anatomySectionHtml = renderSection("Background", exam.anatomy_landmarks, "No anatomy notes listed yet.", false, "col-12 mb-4");
-  const specialTestsSectionHtml = renderSection("Special Tests", exam.special_tests, "No special tests listed yet.", false, "col-12 mb-4");
-  const casePatternsSectionHtml = renderSection("Special Respiratory OSCE Cases", exam.case_patterns, "No case patterns listed yet.", false, "col-12 mb-4");
-  const mainRowHtml = hasSteps || hasFocus
-    ? `
+  const anatomySectionHtml = renderSection(exam.anatomy_landmarks_title || "Background", exam.anatomy_landmarks, "No anatomy notes listed yet.", false, "col-12 mb-4");
+  const specialTestsSectionHtml = renderSection(exam.special_tests_title || "Special Tests", exam.special_tests, "No special tests listed yet.", false, "col-12 mb-4");
+  const casePatternsSectionHtml = renderSection(exam.case_patterns_title || "Case Patterns", exam.case_patterns, "No case patterns listed yet.", false, "col-12 mb-4");
+  const mainRowHtml = (() => {
+    if (!hasSteps && !hasFocus) return "";
+
+    if (exam.full_width_steps) {
+      return `
+        <div class="row">
+          ${hasSteps ? `
+          <div class="col-12 mb-4 section-panel">
+            <h4>Systematic Steps</h4>
+            ${stepsHtml}
+          </div>` : ""}
+          ${hasFocus ? `
+          <div class="col-12 mb-4 section-panel">
+            <h4>Exam Focus Points</h4>
+            ${focusHtml}
+          </div>` : ""}
+        </div>
+      `;
+    }
+
+    return `
       <div class="row">
         ${hasSteps ? `
         <div class="col-12 col-lg-7 mb-4 section-panel">
@@ -110,8 +156,8 @@ if (!moduleData || !exam) {
           ${focusHtml}
         </div>` : ""}
       </div>
-    `
-    : "";
+    `;
+  })();
   const extraRowHtml = anatomySectionHtml || specialTestsSectionHtml || casePatternsSectionHtml
     ? `
       <div class="row">
@@ -128,7 +174,7 @@ if (!moduleData || !exam) {
         <h1 class="mb-2">${formatInline(exam.name)}</h1>
         <p class="text-muted">${formatInline(exam.description)}</p>
         <div class="d-flex gap-2 mb-4">
-          <a class="btn btn-outline-secondary" href="module.html?module=${encodeURIComponent(moduleKey)}">Module Home</a>
+          <a class="btn btn-outline-secondary" href="module.html?module=${encodeURIComponent(moduleKey)}${resolvedSubmoduleKey ? `&submodule=${encodeURIComponent(resolvedSubmoduleKey)}` : ""}">Module Home</a>
         </div>
       </div>
     </div>

@@ -367,7 +367,7 @@ window.INTERNAL_MODULES = {
               "Decreased air entry = pleural effusion or pneumothorax",
               "Fine crackles (pneumonia or pul. edema or pul. fibrosis) vs Course crackles (pneumonia)",
               "Expiatory wheeze (COPD or asthma) vs inspiratory stridor (Upper airway obstruction)",
-              "Ronchi = reactive airway disease",
+              "Rhonchi = reactive airway disease",
               "Compare both sides (R vs L) back and forth",
               "**Auscultate 5 levels (posteriorly AND anteriorly)**",
               "**Special tests for consolidation – Egophony:** Auscultate as patient says 'EEE'; sounds like 'AAA' = may indicate consolidation"
@@ -446,210 +446,1584 @@ window.INTERNAL_MODULES = {
     }
   },
   gastrointestinal: {
-    title: "GI Module",
-    description: "Abdominal and gastrointestinal examination stations for internal medicine and OSCE prep.",
+    title: "Gastroenterology Module",
+    description: "Abdominal and GI examination stations structured from the GI clinical exam PDF for OSCE prep.",
     exams: {
-      abdominal_exam: {
-        name: "Abdominal Examination",
-        description: "Systematic abdominal exam emphasizing inspection, palpation, percussion, and organomegaly.",
+      general_abdominal_exam: {
+        name: "General Abdominal Exam",
+        description: "Systematic abdominal exam covering inspection, palpation, percussion, auscultation, and Murphy's sign.",
         steps: [
           {
             title: "Inspection",
             how: [
-              "Inspect from the end of the bed for pain, distension, scars, drains, or jaundice.",
-              "Look closely at the abdomen for contour, movement, dilated veins, and visible pulsations."
+              "**Abdomen:** masses, scars, lesions, hernias, bulging flanks",
+              "**Skin:** striae, Grey Turner’s Sign, Cullen’s Sign"
             ],
-            pearl: "A quiet inspection phase makes the rest of the exam safer and more accurate."
+            pearl: "Keep inspection broad at first, then narrow in on scars, contour changes, and skin clues."
           },
           {
-            title: "Light and Deep Palpation",
-            how: [
-              "Ask about pain and palpate away from the painful area first.",
-              "Perform light then deep palpation in all quadrants.",
-              "Assess for guarding, masses, or tenderness."
+            title: "Palpation",
+            groups: [
+              {
+                heading: "General Abdomen",
+                how: [
+                  "Divide abdomen into **4 equal quadrants**",
+                  "Palpate lightly and deeply in each region, observe for pain or discomfort",
+                  "If patient reports abdominal pain in a specific area, palpate that area last",
+                  "Observe for tenderness or guarding in each region"
+                ]
+              },
+              {
+                heading: "Gallbladder (Murphy’s Sign)",
+                how: [
+                  "Firmly palpate the point of intersection between the **right costal margin** and **right midclavicular line**",
+                  "While maintaining palpation, ask patient for a **deep breath**",
+                  "**Positive sign:** patient stops breath due to tenderness suggesting **cholecystitis**"
+                ]
+              }
             ],
-            pearl: "Talking the patient through palpation can reduce guarding and help you distinguish true peritonism."
+            pearl: "Palpate the painful area last, otherwise the rest of the abdominal exam becomes much harder to interpret."
           },
           {
-            title: "Organ Palpation",
+            title: "Percussion",
             how: [
-              "Palpate for liver edge and splenic enlargement with inspiration.",
-              "Ballot the kidneys if appropriate and check for aortic expansion."
+              "Percuss around the **umbilicus** and **central abdomen**",
+              "**Resonance:** possible bowel obstruction",
+              "**Dullness:** possible solid mass"
             ],
-            pearl: "Say clearly what you are looking for: organomegaly, ascites, or mass."
+            pearl: "The PDF keeps percussion simple here: central percussion first, then interpret resonance versus dullness."
           },
           {
-            title: "Percussion and Auscultation",
+            title: "Auscultation",
             how: [
-              "Percuss for liver span and splenic dullness where relevant.",
-              "Assess shifting dullness if ascites is suspected.",
-              "Auscultate for bowel sounds and bruits if indicated."
+              "**Bruit:** abdominal aorta, renal artery, iliac artery",
+              "**Bowel sounds:**",
+              "**Absent sounds:** paralytic ileus, late obstruction, peritonitis",
+              "**Hyperactive sounds:** inflammation, diarrhea, early obstruction"
             ],
-            pearl: "Ascites maneuvers are worth mentioning even if you would not perform every one in a short station."
-          },
-          {
-            title: "Completion",
-            how: [
-              "State that you would examine the hands, eyes, lymph nodes, and legs for GI stigmata.",
-              "Offer a rectal exam or urine dip only if clinically indicated."
-            ],
-            pearl: "The strongest OSCE finish is a concise summary plus sensible completion steps."
+            pearl: "Name the vascular bruits explicitly. It makes the auscultation piece sound much more deliberate."
           }
         ],
         focus_points: [
-          "Abdominal distension and scars",
+          "Masses, scars, lesions, hernias, and bulging flanks",
           "Tenderness and guarding",
-          "Hepatomegaly or splenomegaly",
-          "Ascites signs",
-          "GI stigmata to complete"
+          "Murphy’s sign",
+          "Central percussion findings",
+          "Bruits and bowel sound patterns"
+        ]
+      },
+      liver_exam: {
+        name: "Liver Exam",
+        description: "Focused liver exam using inspection, liver span percussion, palpation, and special maneuvers for ascites.",
+        steps: [
+          {
+            title: "Inspection",
+            how: [
+              "**Head:** jaundice, parotid/lacrimal gland enlargement, temporal muscle wasting",
+              "**Abdomen:** masses, scars, bulging flanks, hepatosplenomegaly, ascites",
+              "**Hand:** asterixis, palmar erythema, thenar atrophy, clubbing, Dupuytren’s contractures",
+              "**Nails:** Terry’s nails, leukonychia, half/half nail",
+              "**Other:** edema, caput medusae, spider nevi, gynecomastia, testicular atrophy"
+            ],
+            pearl: "This station is really about recognizing chronic liver disease stigmata as much as feeling the liver itself."
+          },
+          {
+            title: "Percussion (Liver Span)",
+            how: [
+              "Through the **midclavicular line**, percuss downwards from the chest then percuss upwards from the abdomen",
+              "Note the **upper and lower borders** where dullness begins, representing the **liver span**",
+              "**Normal:** 6-12 cm"
+            ],
+            pearl: "Say the upper and lower borders out loud so the examiner hears that you are measuring span rather than just tapping."
+          },
+          {
+            title: "Palpation",
+            how: [
+              "Starting in the **right lower quadrant**, palpate upwards along the **midclavicular line**",
+              "Ask patient to **inspire deeply**",
+              "Feel for an organ edge as it descends with inspiration"
+            ],
+            pearl: "The PDF sequence is RLQ upward palpation with deep inspiration, which keeps your liver palpation method consistent."
+          }
+        ],
+        special_tests_title: "Special Maneuvers for Ascites",
+        special_tests: [
+          {
+            title: "Bulging Flanks",
+            how: [
+              "Position patient **supine**, observe flanks from the **foot of the bed**",
+              "**Positive:** presence of bulging flanks"
+            ],
+            pearl: "Look from the foot of the bed so the contour change is easier to appreciate."
+          },
+          {
+            title: "Fluid Wave Test",
+            how: [
+              "While supine, ask patient to firmly press down the **midline of the centre abdomen** using the edge of their hand",
+              "Place one hand on each flank",
+              "Tap one side while feeling the **opposite flank** with the other hand",
+              "**Positive:** vibration is felt on opposite side"
+            ],
+            pearl: "The midline hand helps stop the wave from simply transmitting through the abdominal wall."
+          },
+          {
+            title: "Shifting Dullness",
+            how: [
+              "While supine, percuss from **umbilicus outwards to right flank** and note point of transition from **tympany to dullness**",
+              "Position patient in **right lateral decubitus**, repeat percussion from umbilicus to right flank and note point of transition",
+              "**Positive:** area of dullness shifts towards midline due to fluid displacing organs"
+            ],
+            pearl: "Marking the transition mentally before turning the patient makes the shift much easier to judge."
+          }
+        ],
+        focus_points: [
+          "Liver disease stigmata on inspection",
+          "Liver span in the midclavicular line",
+          "RLQ-to-RUQ palpation technique",
+          "Bulging flanks",
+          "Fluid wave and shifting dullness"
+        ]
+      },
+      spleen_exam: {
+        name: "Spleen Exam",
+        description: "Focused splenic exam built around Castell’s sign, Traube’s space percussion, and palpation for splenomegaly.",
+        steps: [
+          {
+            title: "Percussion",
+            groups: [
+              {
+                heading: "Castell’s Sign",
+                how: [
+                  "At the **left anterior axillary line**, percuss the **lowest intercostal space** during exhalation",
+                  "Ask patient to **deeply inhale**, then percuss the same space",
+                  "**Positive:** dullness during full inspiration suggests **splenomegaly**"
+                ]
+              },
+              {
+                heading: "Traube’s Space",
+                how: [
+                  "**Boundaries of Traube’s space**",
+                  "**Superior:** 6th rib",
+                  "**Inferior:** left costal margin",
+                  "**Lateral:** anterior axillary line",
+                  "Percuss in **Traube’s space**",
+                  "**Positive:** dullness suggests **splenomegaly**"
+                ]
+              }
+            ],
+            pearl: "These percussion maneuvers are both really screening for splenic dullness, just from two slightly different approaches."
+          },
+          {
+            title: "Palpation",
+            how: [
+              "Slowly palpate from **RLQ to LUQ** while patient **inhales and exhales deeply**",
+              "Attempt to feel the **spleen edge during inspiration**",
+              "**Positive:** spleen is palpable suggesting **splenomegaly**"
+            ],
+            pearl: "The diagonal RLQ-to-LUQ sweep gives you the best chance of catching a descending spleen edge."
+          }
+        ],
+        focus_points: [
+          "Castell’s sign",
+          "Traube’s space boundaries",
+          "Dullness suggesting splenomegaly",
+          "RLQ-to-LUQ palpation",
+          "Spleen edge on inspiration"
+        ]
+      },
+      gi_causes_of_pain: {
+        name: "Special - GI Causes of Pain",
+        description: "Disease-focused GI pain patterns with one expandable section per condition, following the GI PDF.",
+        steps: [
+          {
+            title: "Approach",
+            how: [
+              "Use the general abdominal exam framework first, then add condition-specific provocation maneuvers",
+              "Look for whether the patient appears generally **unwell**, has **guarding/rigidity**, or localizes pain to a specific region"
+            ],
+            pearl: "This page works best after you have already anchored yourself with the basic abdominal exam."
+          }
+        ],
+        case_patterns_title: "GI Causes of Pain",
+        case_patterns: [
+          {
+            title: "Peritonitis",
+            how: [
+              "Patients are generally **unwell** and in visible discomfort",
+              "**Tenderness:** light percussion or palpation of abdomen causes pain",
+              "**Rebound Tenderness:** firmly palpating abdomen then quickly releasing causes extreme pain",
+              "**Shake Tenderness:** shaking bed or stretcher causes pain"
+            ],
+            pearl: "Peritonitis is a whole-abdomen irritation pattern, so even very light provocation may hurt."
+          },
+          {
+            title: "Appendicitis",
+            how: [
+              "**Guarding and rigidity** in abdomen",
+              "**McBurney’s point** (1/3 from ASIS to umbilicus) is tender to palpation and when patient is asked to **cough**",
+              "**Rovsing’s Sign:** palpating in the **LLQ** causes pain in the **RLQ**",
+              "**Psoas Sign:** position patient in **left lateral decubitus**; extending right hip causes pain",
+              "**Obturator Sign:** position patient **supine**, flex both **right hip** and **right knee**; internally rotating at the hip causes pain"
+            ],
+            pearl: "This is the classic localized-peritonism bundle: McBurney’s plus Rovsing’s, psoas, and obturator."
+          }
+        ],
+        focus_points: [
+          "Unwell appearance",
+          "Diffuse versus localized tenderness",
+          "Rebound and shake tenderness",
+          "McBurney’s point",
+          "Rovsing’s, psoas, and obturator signs"
+        ]
+      },
+      non_gi_causes_of_pain: {
+        name: "Special - Non-GI Causes of Pain",
+        description: "Non-GI causes of abdominal pain presented as disease-specific dropdowns, matching the PDF structure.",
+        steps: [
+          {
+            title: "Approach",
+            how: [
+              "When abdominal pain does not fit a primary GI source, widen the exam to **renal, pelvic, and genital** causes",
+              "Use focused extension exams when suspicion is high"
+            ],
+            pearl: "This module is about remembering when the pain source is outside the gut, even if the complaint sounds abdominal."
+          }
+        ],
+        case_patterns_title: "Non-GI Causes of Pain",
+        case_patterns: [
+          {
+            title: "Pyelonephritis",
+            how: [
+              "**Costovertebral Angle (CVA) Tenderness:** at the CVA angle on either side, create a fist and firmly percuss the area",
+              "Pain suggests **pyelonephritis**, and can also suggest **perinephric abscess, nephrolithiasis, or muscle pain**"
+            ],
+            pearl: "CVA tenderness is fast to test and immediately shifts your thinking toward renal causes."
+          },
+          {
+            title: "Pelvic Inflammatory Disease",
+            how: [
+              "Perform **speculum/bimanual exam** when suspected"
+            ],
+            pearl: "The key move here is knowing when to extend beyond the abdominal exam."
+          },
+          {
+            title: "Testicular Torsion / STD",
+            how: [
+              "Perform **genital exam** when suspected"
+            ],
+            pearl: "Abdominal pain can still be a genital emergency, so keep torsion on the table when the story fits."
+          }
+        ],
+        focus_points: [
+          "CVA tenderness",
+          "Renal versus pelvic versus genital source",
+          "Speculum and bimanual extension when needed",
+          "Genital exam when suspected",
+          "Remember torsion in abdominal pain presentations"
         ]
       }
     }
   },
   neurology: {
     title: "Neurology Module",
-    description: "High-yield bedside neurologic screening and focused motor exam content.",
+    description: "General neuro screening, cranial nerves, and cerebellar coordination for OSCE prep.",
+    display_order: ["submodule:general_neuro_exam", "exam:cranial_nerve_exam", "exam:cerebellar_exam"],
     exams: {
-      motor_exam: {
-        name: "Upper and Lower Limb Motor Examination",
-        description: "Motor-focused neurologic exam covering bulk, tone, power, reflexes, and coordination.",
+      cranial_nerve_exam: {
+        name: "Cranial Nerve Exam",
+        description: "CN I-XII exam with visual, ocular, facial, hearing, palate, shoulder, and tongue testing.",
+        full_width_steps: true,
         steps: [
           {
-            title: "Inspection and Bulk",
+            title: "Opening and Setup",
             how: [
-              "Inspect posture, asymmetry, fasciculations, tremor, and muscle wasting.",
-              "Compare both sides before touching the patient."
+              "Introduce yourself and sanitize your hands",
+              "Explain the components of the exam: examining **CN I-XII** individually except **CN III, IV, and VI** which are examined together",
+              "Vitals: **BP, HR, RR, O2 sat, temperature**",
+              "Ensure the patient is draped appropriately and completely gowned"
             ],
-            pearl: "The diagnosis often starts before you ask the patient to move."
+            pearl: "For cranial nerves, a tidy setup buys you a lot of credibility before you even start testing."
           },
           {
-            title: "Tone",
+            title: "CN I: Olfactory",
             how: [
-              "Explain that you are checking relaxation, then move each joint passively.",
-              "Assess for spasticity, rigidity, or flaccidity."
+              "Not often conducted in PSD sessions",
+              "Inspect for **nose deformities**, **septum alignment**, and **rhinorrhea**",
+              "Ask patient to close their eyes and **occlude one nostril**",
+              "Ask patient to identify a common scent such as **cinnamon** or **coffee beans**",
+              "Repeat with the other nostril"
             ],
-            pearl: "Tone is easiest to judge when the patient is relaxed and not anticipating your movement."
+            pearl: "This one is rarely emphasized, so a concise but correct method is enough."
           },
           {
-            title: "Power",
-            how: [
-              "Test key muscle groups systematically and compare sides.",
-              "Grade strength clearly and mention pain-limited effort if present."
+            title: "CN II: Optic",
+            groups: [
+              {
+                heading: "Initial Inspection",
+                how: [
+                  "Inspect **pupil size, shape, and symmetry**"
+                ]
+              },
+              {
+                heading: "Visual Acuity",
+                how: [
+                  "Use a **Rosenbaum chart** at **35 cm** or a **Snellen chart** at **6 m**",
+                  "Test one eye at a time and record **OD** and **OS**",
+                  "Patient can wear **corrective lenses**",
+                  "**20/200 = legally blind**"
+                ]
+              },
+              {
+                heading: "Visual Fields by Confrontation",
+                how: [
+                  "Test each eye separately in all **4 quadrants**",
+                  "Stand about **1 m** in front of the patient",
+                  "Both you and the patient cover matching eyes",
+                  "Hold up **1, 2, or 5 fingers** in each quadrant and ask the patient to state the number",
+                  "You can bring fingers in from the outermost edge to test peripheral limits"
+                ]
+              },
+              {
+                heading: "Pupillary Light Reflex and RAPD",
+                how: [
+                  "Afferent limb = **CN II**, efferent limb = **CN III**",
+                  "Shine a penlight to assess each pupil’s reaction",
+                  "Test **RAPD** using the **swinging flashlight test**",
+                  "Pupils slightly dilate or constrict less when the light swings from the unaffected eye to the affected eye in a **CN II lesion**"
+                ]
+              },
+              {
+                heading: "Accommodation and Fundoscopy",
+                how: [
+                  "Ask the patient to focus on your finger as you move it from distance towards the nose",
+                  "Pupils should follow and constrict as the finger comes closer",
+                  "For fundoscopy: dim the room, find the **red reflex**, follow it to the **optic disc**, and inspect the **disc, macula, fovea, and retinal vessels**"
+                ]
+              }
             ],
-            pearl: "Consistency matters more than fancy maneuvers under OSCE timing."
+            pearl: "CN II is big. If time is tight, stay organized rather than rushing every subcomponent."
           },
           {
-            title: "Reflexes and Coordination",
+            title: "CN III, IV, VI: Oculomotor, Trochlear, Abducens",
             how: [
-              "Check relevant tendon reflexes and plantar response when indicated.",
-              "Assess finger-nose or heel-shin depending on the station."
+              "Tested **together**",
+              "Inspect **pupil size, shape, symmetry, ptosis, eye position**, and **primary-position nystagmus**",
+              "Ask patient to keep their head still and to report **diplopia**",
+              "Test extraocular movements by drawing an **H pattern** and assess **smooth pursuit** and **range of motion**",
+              "Pause at the end of lateral and vertical movements to observe for **nystagmus**",
+              "For **saccades**, ask the patient to look quickly from your finger to your nose and back"
             ],
-            pearl: "Reflexes tell the examiner you can localize, not just list findings."
+            pearl: "Move your finger slowly enough to test pursuit, then switch deliberately if you want saccades."
           },
           {
-            title: "Gait and Completion",
+            title: "CN V: Trigeminal",
             how: [
-              "State that you would assess gait, sensation, and cranial nerves as needed.",
-              "Summarize whether the pattern looks upper motor neuron, lower motor neuron, cerebellar, or normal."
+              "Inspect for **atrophy**",
+              "Test **light touch** in the **V1, V2, and V3** dermatomal areas and ask if both sides feel the same",
+              "You can also test **pain** with the sharp end of a tongue depressor or pin, and **temperature** with a cold tuning fork",
+              "For temporalis and masseter, ask the patient to **clench their teeth** while you palpate",
+              "For pterygoids, ask the patient to open the mouth and move the jaw side to side against resistance",
+              "**Corneal reflex** is not normally done in a conscious cooperative patient",
+              "**Jaw jerk:** finger on chin, tap lightly with reflex hammer; jaw elevation should be minimal or absent"
             ],
-            pearl: "A brief localization statement can elevate the whole performance."
+            pearl: "Sensory V and motor V are both fair game, so it helps to state clearly when you are switching between them."
+          },
+          {
+            title: "CN VII: Facial",
+            how: [
+              "Inspect facial expression, weakness, lacrimation, and salivation",
+              "Look for widened palpebral fissures, flattened nasolabial folds, drooping mouth, or involuntary movements",
+              "Ask the patient to **raise eyebrows**",
+              "Ask them to **close eyes tightly** and not let you open them",
+              "Ask them to **show teeth** or **bottom teeth**",
+              "Ask them to **close mouth tightly** and resist opening",
+              "Ask them to **puff out cheeks** and resist you popping them",
+              "Taste testing exists but is unlikely to be done on OSCE"
+            ],
+            pearl: "You are really judging symmetry as much as strength here."
+          },
+          {
+            title: "CN VIII: Vestibulocochlear",
+            groups: [
+              {
+                heading: "Hearing",
+                how: [
+                  "For gross hearing, **whisper** or rub fingers near each ear and ask if it sounds similar on both sides",
+                  "**Weber:** strike tuning fork and place it on the middle of the forehead",
+                  "Normal Weber = equally loud on both sides",
+                  "Conductive loss lateralizes to the **affected** ear",
+                  "Sensorineural loss lateralizes to the **unaffected** ear",
+                  "**Rinne:** place tuning fork on the **mastoid** until the patient can no longer hear it, then move it in front of the ipsilateral ear",
+                  "Normal Rinne = **air conduction > bone conduction**",
+                  "Conductive loss = **bone conduction > air conduction**"
+                ]
+              },
+              {
+                heading: "Vestibular Function",
+                how: [
+                  "Comment on whether you observed **nystagmus** during eye movement testing"
+                ]
+              }
+            ],
+            pearl: "Keep Weber and Rinne interpretation crisp. That is usually the part people stumble on."
+          },
+          {
+            title: "CN IX and X: Glossopharyngeal and Vagus",
+            how: [
+              "Tested **together**",
+              "Inspect the **uvula** for deviation; it deviates toward the **non-lesioned side**",
+              "**Gag reflex** is usually only tested in unconscious patients",
+              "Observe **swallowing** with a sip of water",
+              "For articulation, ask the patient to say **Ka, Ka, Ka**, **Ga, Ga, Ga**, **Pa, Pa, Pa**, and **La, La, La**"
+            ],
+            pearl: "Speech and swallow often tell you more than a token gag reflex ever would."
+          },
+          {
+            title: "CN XI: Spinal Accessory",
+            how: [
+              "Inspect **SCM** and **trapezius** for atrophy, hypertrophy, and fasciculations",
+              "Ask the patient to **shrug shoulders against resistance**",
+              "Ask the patient to **turn head side to side against resistance**"
+            ],
+            pearl: "Remember the SCM turns the head away from the side being tested."
+          },
+          {
+            title: "CN XII: Hypoglossal",
+            how: [
+              "Ask the patient to **stick out their tongue** and inspect for atrophy, hypertrophy, and fasciculations",
+              "Assess for **tongue deviation**; it deviates **towards the lesion**",
+              "Ask the patient to press the tongue laterally against a **tongue depressor**"
+            ],
+            pearl: "Tongue deviation is a classic easy mark if you remember which way it goes."
           }
         ],
         focus_points: [
-          "Bulk and fasciculations",
-          "Tone pattern",
-          "Power grading",
-          "Reflexes and plantar response",
-          "Localization summary"
+          "Orderly CN I-XII flow",
+          "CN II visual testing",
+          "Eye movements and nystagmus",
+          "Facial symmetry and hearing tests",
+          "Palate, shoulder, and tongue findings"
         ]
+      },
+      cerebellar_exam: {
+        name: "Cerebellar (Coordination) Exam",
+        description: "Focused cerebellar exam covering nystagmus, speech, truncal ataxia, dysdiadochokinesis, dysmetria, ataxic gait, and Romberg.",
+        steps: [
+          {
+            title: "Nystagmus",
+            how: [
+              "Look for involuntary rhythmic eye movements in **horizontal, vertical, or torsional** directions",
+              "Have the patient look straight ahead and inspect for nystagmus",
+              "Have the patient look laterally and vertically **without fixating on a target**",
+              "**Nystagmus in all directions** suggests a cerebellar issue",
+              "**Vertical nystagmus** suggests a **midbrain lesion**"
+            ],
+            pearl: "Direction matters here. Horizontal alone is different from vertical or multi-directional nystagmus."
+          },
+          {
+            title: "Speech and Truncal Ataxia",
+            how: [
+              "Listen for **staccato speech**",
+              "Inspect for **swaying while sitting up** with no back support"
+            ],
+            pearl: "Even before limb testing, the voice and trunk can point you toward cerebellar disease."
+          },
+          {
+            title: "Dysdiadochokinesis",
+            how: [
+              "Ask patient to quickly **supinate and pronate** one hand on the palm of the other hand",
+              "Look for **speed, amplitude, and frequency**"
+            ],
+            pearl: "You are not just checking whether they can do it, but whether the rhythm stays smooth."
+          },
+          {
+            title: "Finger to Nose (Dysmetria)",
+            how: [
+              "Hold your index finger far enough that the patient must fully outstretch their arm",
+              "Ask patient to alternate touching your finger and their nose while you move your finger around in the same plane",
+              "Assess for **tremor**: resting, action, and intention",
+              "**Intention tremor** worsens as they approach your finger",
+              "Assess for **accuracy**",
+              "**Overshooting** your finger is classic for cerebellar ataxia"
+            ],
+            pearl: "This is one of the cleanest places to show intention tremor and dysmetria together."
+          },
+          {
+            title: "Heel to Shin (Dysmetria)",
+            how: [
+              "Ask the patient to place their heel on the opposite knee and move it in a straight line down to the ankle",
+              "Assess for **tremor**",
+              "Assess for **accuracy**",
+              "Assess for ability to **keep the heel on the shin**"
+            ],
+            pearl: "Heel-to-shin is the lower limb equivalent of finger-to-nose: smoothness and accuracy both matter."
+          },
+          {
+            title: "Ataxic Gait and Romberg",
+            how: [
+              "Assess for **wide-based stance**, irregular and uncoordinated gait",
+              "In cerebellar gait there is **no change when eyes are closed**",
+              "For **Romberg**, ask patient to stand with feet together for at least 20 seconds with eyes open, then closed",
+              "Look for unsteadiness, stepping to regain balance, or falling",
+              "**Sensory (proprioceptive) ataxia** worsens only with **eyes closed**",
+              "**Cerebellar ataxia** is present with **eyes open and closed**"
+            ],
+            pearl: "Romberg is really a proprioception test, which is why interpretation depends on what happens when the eyes close."
+          }
+        ],
+        focus_points: [
+          "Nystagmus pattern",
+          "Staccato speech and truncal sway",
+          "Dysdiadochokinesis",
+          "Finger-to-nose and heel-to-shin",
+          "Romberg interpretation"
+        ]
+      }
+    },
+    submodules: {
+      general_neuro_exam: {
+        title: "General Neuro Exam",
+        description: "Core general neuro exam categories organized into focused study pages.",
+        exams: {
+          level_of_consciousness_gcs: {
+            name: "Level of Consciousness (GCS)",
+            description: "Focused Glasgow Coma Scale review with scoring domains and pain stimulus options.",
+            steps: [
+              {
+                title: "Glasgow Coma Scale",
+                how: [
+                  "**3 domains:** eye, verbal, and motor response",
+                  "Comment on **eye opening:** 1-4 points",
+                  "Comment on **verbal response:** 1-5 points",
+                  "Comment on **motor response:** 1-6 points",
+                  "**Lowest = 3**, **highest = 15**",
+                  "**Pain stimulus:** sternal rub or supraorbital pressure"
+                ],
+                pearl: "Keep GCS mechanical and explicit. Examiners mainly want to hear the three domains and that you can score them."
+              }
+            ],
+            focus_points: [
+              "Eye opening",
+              "Verbal response",
+              "Motor response",
+              "Total score range",
+              "Pain stimulus options"
+            ]
+          },
+          gait_exam: {
+            name: "Gait",
+            description: "General gait assessment with pattern recognition for common neurologic gait abnormalities.",
+            steps: [
+              {
+                title: "Gait Assessment",
+                how: [
+                  "Gait is typically the **first exam** done after laying eyes on the patient and taking the history",
+                  "Have patient walk from one point to another, visualizing gait from the **front** and **behind**",
+                  "Assess for **antalgia** (avoidance of a painful area), **ataxia** (incoordination), and **Trendelenburg gait** (hip drop)",
+                  "Comment on **gait initiation** (hesitation or freezing), **gait speed**, **stride length**, **stride height** (high-steppage vs normal vs foot drop/drag), **leg swing** (circumduction), **wide/small-based stance**, **arm swing**, **posture** (stooped vs upright), and **turning** (steadiness, speed, turn en bloc?)",
+                  "Comment on whether the patient relies on an **assistive device**"
+                ],
+                pearl: "A strong gait description sounds like a checklist: initiation, speed, stride, swing, base, arm swing, posture, and turning."
+              }
+            ],
+            case_patterns_title: "Gait Patterns",
+            case_patterns: [
+              {
+                title: "Spastic Gait",
+                how: [
+                  "**Scissoring gait** with thighs adducted, often hitting knees and thighs together",
+                  "**Circumduction** may be present"
+                ],
+                pearl: "Think bilateral upper motor neuron pattern."
+              },
+              {
+                title: "Hemiplegic Gait",
+                how: [
+                  "Lack of **knee flexion**",
+                  "**Foot drop** leading to hip hiking and/or circumduction",
+                  "Asymmetry of posture and arm swing"
+                ],
+                pearl: "This one reads like a one-sided spastic pattern."
+              },
+              {
+                title: "Parkinsonian Gait",
+                how: [
+                  "**Shuffling** gait",
+                  "**Reduced arm swing**",
+                  "**Festination**",
+                  "**Stooped posture**",
+                  "Possible **hesitations or interruptions**",
+                  "**Turn en bloc** may be present"
+                ],
+                pearl: "Small, fast, stooped, and stiff is the picture to keep in mind."
+              },
+              {
+                title: "Cerebellar Ataxic Gait",
+                how: [
+                  "**Wide-based stance**",
+                  "Irregular and uncoordinated gait"
+                ],
+                pearl: "This is unsteady even with eyes open."
+              },
+              {
+                title: "Sensory Ataxic Gait",
+                how: [
+                  "**High-stepping** gait",
+                  "Difficulty walking with **eyes closed**",
+                  "Can perform **Romberg test**"
+                ],
+                pearl: "If closing the eyes makes it much worse, think proprioception."
+              },
+              {
+                title: "Antalgic Gait",
+                how: [
+                  "Reduced **stance phase** on the side with pain"
+                ],
+                pearl: "This is the pain-avoidance gait."
+              },
+              {
+                title: "Trendelenburg Gait",
+                how: [
+                  "**Pelvic drop** while walking"
+                ],
+                pearl: "Look at the pelvis, not just the feet."
+              },
+              {
+                title: "Steppage Gait",
+                how: [
+                  "**High knee lift** with **foot drop**"
+                ],
+                pearl: "This is the classic compensation for a dragging foot."
+              }
+            ],
+            focus_points: [
+              "Initiation and speed",
+              "Stride length and height",
+              "Base, swing, and posture",
+              "Turning",
+              "Pattern recognition"
+            ]
+          },
+          tone_exam: {
+            name: "Tone",
+            description: "Tone exam covering rigidity, spasticity, clonus, flaccidity, Ashworth grading, and usual spastic patterns.",
+            steps: [
+              {
+                title: "Tone Assessment",
+                how: [
+                  "Have the patient fully **relax**",
+                  "Pearl: move and/or shake their limb gently to assist relaxation",
+                  "Bring the limb through its **range of motion (ROM)** to test **rigidity**",
+                  "**Cog-wheeling:** stiffness starts and stops like a clock second hand",
+                  "**Lead pipe:** stiffness through the entire ROM",
+                  "**Spasticity:** stiffness invoked by **fast movements** (velocity-dependent)",
+                  "Perform quick high-velocity movements and feel for a **spastic catch**",
+                  "Feel for **clonus** in the dorsiflexors and count the beats",
+                  "**Flaccidity:** complete loss of muscle tone, feels like dead weight and provides no resistance"
+                ],
+                pearl: "Move slowly first for rigidity, then quickly for spasticity. That contrast is what makes the tone exam useful."
+              },
+              {
+                title: "Modified Ashworth Scale",
+                how: [
+                  "**0:** No increase in muscle tone",
+                  "**1:** Slight increase with catch and release or minimal resistance at end range",
+                  "**1+:** Slight increase with catch, followed by minimal resistance through less than half the range",
+                  "**2:** More marked increase through most of range, but easily moved",
+                  "**3:** Considerable increase; passive movement difficult",
+                  "**4:** Rigid in flexion or extension"
+                ],
+                pearl: "If you mention Ashworth, keep it brief and practical rather than trying to sound encyclopedic."
+              }
+            ],
+            special_tests_title: "Usual Spastic Pattern",
+            special_tests: [
+              {
+                title: "Upper Extremity",
+                how: [
+                  "**Shoulder:** adductors",
+                  "**Elbow:** flexors",
+                  "**Forearm:** pronators",
+                  "**Wrist:** flexors",
+                  "**Fingers:** flexors"
+                ],
+                pearl: "These are the usual upper-limb muscle groups that tighten in a spastic pattern."
+              },
+              {
+                title: "Lower Extremity",
+                how: [
+                  "**Hip:** extensors",
+                  "**Knee:** extensors",
+                  "**Ankle:** plantar flexors",
+                  "**Toes:** flexors"
+                ],
+                pearl: "Knowing the usual lower-limb spastic pattern helps you target tone testing quickly."
+              }
+            ],
+            focus_points: [
+              "Rigidity versus spasticity",
+              "Cog-wheeling and lead pipe",
+              "Clonus",
+              "Flaccidity",
+              "Ashworth grading"
+            ]
+          },
+          power_exam: {
+            name: "Power",
+            description: "Strength testing with joint stabilization and standard 0-to-5 grading.",
+            steps: [
+              {
+                title: "Power Assessment",
+                how: [
+                  "When testing power, **stabilize the joint** with one hand while using the other to test strength",
+                  "Test **one limb at a time**",
+                  "**0:** No muscle activation",
+                  "**1:** Trace muscle activation, such as a twitch, without achieving full range of motion",
+                  "**2:** Muscle activation with gravity eliminated, achieving full range of motion",
+                  "**3:** Muscle activation against gravity, full range of motion",
+                  "**4:** Muscle activation against some resistance, full range of motion",
+                  "**4+:** almost normal",
+                  "**4-:** can only offer slight resistance",
+                  "**5:** Muscle activation against examiner’s full resistance, full range of motion"
+                ],
+                pearl: "Joint stabilization matters. Without it, power grading gets noisy fast."
+              }
+            ],
+            focus_points: [
+              "Joint stabilization",
+              "One limb at a time",
+              "0 to 5 grading",
+              "Interpreting 4+ and 4-"
+            ]
+          },
+          reflexes_exam: {
+            name: "Reflexes",
+            description: "Deep tendon reflexes, tendon landmarks, clonus, and classic upper motor neuron signs.",
+            steps: [
+              {
+                title: "Reflex Technique and Landmarks",
+                how: [
+                  "Test on **both sides**",
+                  "Consider placing **2 fingers** over the tendon you will be hitting for patient comfort",
+                  "Palpate landmarks first:",
+                  "**Biceps:** biceps tendon above antecubital fossa",
+                  "**Triceps:** tendon at the back of the elbow above the olecranon",
+                  "**Brachioradialis:** tendon on the lateral edge of the radial forearm",
+                  "**Medial Hamstring:** tendon on the medial side of the quadriceps just above the popliteal fossa",
+                  "**Patellar:** between the patella and tibial tuberosity",
+                  "**Achilles:** tendon at the back of the heel above the calcaneus",
+                  "For Achilles, hold the sole of the foot to feel the reflex and any **clonus**"
+                ],
+                pearl: "Landmarking the tendon first makes the reflex exam look much more controlled."
+              },
+              {
+                title: "Reflex Grading",
+                how: [
+                  "**0:** no response; always abnormal",
+                  "**1+:** a slight but definitely present response; may or may not be normal",
+                  "**2+:** a brisk response; normal",
+                  "**3+:** a very brisk response; may or may not be normal",
+                  "**4+:** a tap elicits a repeating reflex (**clonus**); always abnormal"
+                ],
+                pearl: "If you’re unsure, the important anchor is that **2+ is normal**."
+              }
+            ],
+            special_tests_title: "Upper Motor Neuron Signs",
+            special_tests: [
+              {
+                title: "Hoffman’s Sign",
+                how: [
+                  "Flick the **middle finger** of the patient",
+                  "Look for **flexion of the other digits**",
+                  "That is a **positive sign**"
+                ],
+                pearl: "Keep it subtle. You are looking for a reflex release sign, not forcing the hand to move."
+              },
+              {
+                title: "Babinski Reflex",
+                how: [
+                  "Stroke the **sole of the foot** starting from the lateral side of the heel up towards the big toe in an upside-down **L** fashion",
+                  "Look for **extension of the big toe** and **fanning out of the other toes**",
+                  "A **negative test** = no movement or downward curling of the toes"
+                ],
+                pearl: "Be slow and deliberate. Babinski is easiest to see when the stimulus is controlled."
+              }
+            ],
+            focus_points: [
+              "Biceps, triceps, brachioradialis",
+              "Hamstring, patellar, Achilles",
+              "2+ as normal",
+              "Clonus",
+              "Hoffman and Babinski"
+            ]
+          },
+          sensory_exam: {
+            name: "Sensory",
+            description: "Sensory testing for pain, vibration, proprioception, and light touch.",
+            steps: [
+              {
+                title: "Pain (Spinothalamic Tract - STT)",
+                how: [
+                  "Using a **pinprick device**, show patient what **sharp** and **dull** sensation feels like",
+                  "Counsel them that this will hurt but **won’t break the skin**",
+                  "Use the pinprick device to test pain sensation, having the patient say **yes** when they feel the prick",
+                  "Compare multiple **dermatomes** or **nerve distributions** of interest",
+                  "Compare to the **opposite side**"
+                ],
+                pearl: "Pre-demonstrating sharp and dull saves a lot of confusion once the patient closes their eyes."
+              },
+              {
+                title: "Vibration (Dorsal Column-Medial Lemniscal Pathway - DCML)",
+                how: [
+                  "Place a **128 Hz tuning fork** over the most distal joint (**DIP of hand or toe**)",
+                  "Ask patient to tell you when they no longer feel the vibration",
+                  "If you feel the vibration when the patient cannot, that suggests **diminished vibration sense**",
+                  "Move to the next most **proximal joint** and test again until vibration sense is normal"
+                ],
+                pearl: "Always start distally. It gives you somewhere to move proximally if the finding is abnormal."
+              },
+              {
+                title: "Proprioception (DCML)",
+                how: [
+                  "Place your fingers on either side of the patient’s most distal joint (**DIP of hand or toe**)",
+                  "Show the patient you moving the joint **upwards** and **downwards**",
+                  "Have patient **close their eyes**, move their joint up or down, and have patient identify the direction",
+                  "**2 or fewer errors out of 10 = normal**"
+                ],
+                pearl: "Hold the sides of the digit, not the top and bottom, so you do not accidentally cue the direction."
+              },
+              {
+                title: "Light Touch",
+                how: [
+                  "Use a **cotton ball**",
+                  "Show patient what light touch feels like",
+                  "Have the patient close their eyes and say **yes** when they feel the cotton ball",
+                  "Compare multiple **dermatomes** or **nerve distributions** of interest",
+                  "Compare to the **opposite side**"
+                ],
+                pearl: "Light touch seems simple, but symmetrical side-to-side comparison is the whole point."
+              }
+            ],
+            focus_points: [
+              "Pain / STT",
+              "Vibration / DCML",
+              "Proprioception",
+              "Light touch",
+              "Side-to-side comparison"
+            ]
+          }
+        }
       }
     }
   },
   psychiatry: {
     title: "Psychiatry Module",
-    description: "Foundational psychiatric interview and mental status examination stations.",
+    description: "Core psychiatry history, mental status examination, suicide risk assessment, and diagnosis-focused screening pages.",
     exams: {
-      mental_status_exam: {
-        name: "Mental Status Examination",
-        description: "Structured psychiatric assessment covering appearance, behaviour, speech, mood, thought, perception, cognition, and insight.",
+      psychiatry_history: {
+        name: "Psychiatry History",
+        description: "Core structure for a psychiatric history station, including safety, background history, substance use, and formulation.",
         steps: [
           {
-            title: "Appearance and Behaviour",
+            title: "Key Parts of the Psych History",
             how: [
-              "Observe grooming, dress, eye contact, psychomotor activity, and rapport from the start.",
-              "Comment on agitation, withdrawal, guardedness, or unusual mannerisms."
+              "**ID**",
+              "**Chief complaint**",
+              "**Hx of present illness**",
+              "**Safety assessment** (SI/HI, access to weapons, at-risk minors etc.)",
+              "**Past psych hx**",
+              "**Past medical/surgical hx**",
+              "**Review of meds and allergies**",
+              "**Review of systems/symptoms**",
+              "**Substance use hx**",
+              "**Fam hx**",
+              "**Psychosocial hx**",
+              "**MSE**",
+              "**P/E**",
+              "**Ddx**",
+              "**Treatment/management plan**"
+            ],
+            pearl: "A good psych history is broad, but it still needs a clear internal order so you do not miss safety or function."
+          },
+          {
+            title: "Opening, Chief Concern, and HPI",
+            how: [
+              "Identify the patient and clarify the **chief complaint** in their own words.",
+              "Build out the **history of present illness** with symptom onset, duration, progression, triggers, and functional impact.",
+              "Clarify whether the concern sounds primarily mood-related, psychotic, anxiety-related, cognitive, substance-related, or mixed."
+            ],
+            pearl: "In psych OSCEs, the history of present illness usually carries the diagnosis if you structure it well."
+          },
+          {
+            title: "Safety, Background, and Systems Review",
+            how: [
+              "Ask directly about **SI/HI**, access to weapons, and any concerns about vulnerable dependents.",
+              "Review **past psychiatric history**, admissions, self-harm, previous diagnoses, and prior treatments.",
+              "Cover **medical/surgical history**, medications, allergies, family history, and a focused symptom review."
+            ],
+            pearl: "Even when the station feels mood-focused, examiners usually expect direct risk screening."
+          },
+          {
+            title: "Substance Use, Psychosocial Context, and Close",
+            how: [
+              "Always ask about **substance use history**.",
+              "Clarify **psychosocial history** including relationships, housing, work/school, and supports.",
+              "State that you would complete the **MSE**, perform a relevant **physical exam**, give a **differential diagnosis**, and outline a **treatment/management plan**."
+            ],
+            pearl: "Psychiatry stations often separate strong candidates by how well they explore supports, function, and context."
+          }
+        ],
+        focus_points: [
+          "Chief complaint and HPI",
+          "Direct safety assessment",
+          "Past psychiatric and medical history",
+          "Substance use and psychosocial context",
+          "MSE, differential, and management framing"
+        ]
+      },
+      mental_status_exam: {
+        name: "Mental Status Examination",
+        description: "Structured psychiatric assessment covering appearance, behaviour, speech, emotion, perception, thought, cognition, and insight.",
+        steps: [
+          {
+            title: "Appearance and Behaviour (A)",
+            how: [
+              "**Gender**",
+              "**Cultural background**",
+              "**Staged age** (do they appear older or younger?)",
+              "**Attire** (appropriate or not etc.)",
+              "**Hygiene/grooming** (neat vs. unkept vs. disheveled etc.)",
+              "**Other characteristics** (cosmetic use, style, etc.)",
+              "**Motor:** tics, tremors, EPS, psychomotor retardation, hyperactive etc.",
+              "**Activity level:** normal vs. increased vs. decreased",
+              "**Eye contact:** absent vs. inconsistent vs. consistent"
             ],
             pearl: "The MSE starts the moment you meet the patient, not after formal questions begin."
           },
           {
-            title: "Speech and Mood",
+            title: "Speech (S)",
             how: [
-              "Assess rate, volume, fluency, and coherence of speech.",
-              "Ask directly about mood and compare it with observed affect."
+              "**Accent/dialect**",
+              "**Speech amount**",
+              "**Articulation:** slurring, mechanical problems, tardive dyskinesia, etc.",
+              "**Modulation:** loud, soft-spoken, normal etc.",
+              "**Pitch:** within normal range, monotone, etc.",
+              "**Rate:** within normal vs. fast vs. slow"
             ],
-            pearl: "Separating subjective mood from objective affect is classic OSCE territory."
+            pearl: "Speech gives you a lot of diagnostic information quickly, especially in mood and psychotic disorders."
           },
           {
-            title: "Thought Form and Content",
+            title: "Emotion (E)",
             how: [
-              "Explore whether thoughts are logical, goal-directed, slowed, or tangential.",
-              "Ask about delusions, guilt, hopelessness, suicidal ideation, and obsessional thoughts."
+              "**Mood** = patient-endorsed emotional state",
+              "**Affect** = observed by interviewer",
+              "**Quality:** bright, sad, anxious, angry/irritable, etc.",
+              "**Range:** full, labile, flat, restricted, blunted, etc.",
+              "**Intensity:** low vs. normal vs. high",
+              "**Congruence** between affect and mood, physical appearance, and behaviours"
             ],
-            pearl: "Use calm, direct language for sensitive risk questions."
+            pearl: "Separating mood from affect is classic psych OSCE territory."
           },
           {
-            title: "Perception, Cognition, and Insight",
+            title: "Perceptions (P)",
             how: [
-              "Screen for hallucinations or perceptual disturbance.",
-              "Assess orientation, attention, memory, and concentration where relevant.",
-              "Ask whether the patient feels unwell and understands the need for help."
+              "**Hallucinations** (auditory, visual, olfactory, tactile, gustatory) vs **illusions**",
+              "Remember that **auditory command hallucinations** are high risk for SI/HI/harm",
+              "**Disturbances of self and environment:** depersonalization, derealization",
+              "**Disturbances of experience:** deja vu / jamais vu"
             ],
-            pearl: "Insight is often nuanced; describe it rather than forcing it into all-or-none language."
+            pearl: "Always explore the content of perceptual disturbances, not just whether they are present."
+          },
+          {
+            title: "Thought Form and Content (T)",
+            how: [
+              "**Form:** circumstantiality, flight of ideas, rambling, loose associations, thought blocking, jargon, word salad, etc.",
+              "**Content:** delusions, overvalued ideas, obsessions, phobias",
+              "Ask directly about **thoughts of harm to self/others**",
+              "Delusions may include paranoid, persecutory, grandiose, jealous, erotomanic, somatic, control, religious, reference, thought broadcasting/insertion/withdrawal"
+            ],
+            pearl: "Thought form is how thoughts are organized; thought content is what the thoughts are about."
+          },
+          {
+            title: "Insight and Judgment (I)",
+            how: [
+              "**Insight:** full vs. partial vs. impaired vs. absent",
+              "**Judgment:** good vs. fair vs. poor",
+              "Remember that insight and judgment are **not always congruent**"
+            ],
+            pearl: "It is often stronger to describe why insight or judgment seems impaired than to label it alone."
+          },
+          {
+            title: "Cognitive Function (C)",
+            how: [
+              "May be assessed through interview or more formally with **MMSE** (score <25 = further investigation) or **MoCA** (score <26 = further investigation, adjusted for education)",
+              "**Orientation:** person, place, time",
+              "**Attention**",
+              "**Memory**",
+              "**Language functions**",
+              "**Abstract/concrete thinking**",
+              "**Visuospatial functions**",
+              "**Executive functions**",
+              "**Capacity to read/write**"
+            ],
+            pearl: "Only test cognition formally when it fits the station, but always know what domains you are sampling."
           }
         ],
         focus_points: [
-          "Appearance and psychomotor state",
-          "Speech pattern",
-          "Mood vs affect",
+          "Appearance and behaviour",
+          "Speech",
+          "Emotion: mood vs affect",
+          "Perception",
           "Thought form and content",
-          "Perception, cognition, and insight"
+          "Insight/judgment and cognition"
         ]
       },
-      mood_history: {
-        name: "Focused Mood History",
-        description: "Targeted psychiatry history station for depression, mania, and risk screening.",
+      suicide_risk_assessment: {
+        name: "Suicide Risk Assessment",
+        description: "Focused suicide risk screening with direct questioning, risk stratification, and safety planning.",
         steps: [
           {
-            title: "Presenting Symptoms",
+            title: "When to Assess and How to Start",
             how: [
-              "Start with the patient's main concern and timeline of mood change.",
-              "Clarify low mood, anhedonia, sleep, appetite, energy, concentration, and guilt."
+              "Applicable to: patients who present with signs of psych illness and/or distress; patients whose family/friends raise concerns; patients who express suicidal ideation",
+              "Always **explicitly ask about suicide**",
+              "Open-ended start: “Have things gotten bad to the point that you have thought about hurting yourself or ending your life?”"
             ],
-            pearl: "A good focused history feels conversational, but still covers the core symptom clusters."
+            pearl: "In psych OSCEs, direct and calm wording is safer than trying to sound delicate."
           },
           {
-            title: "Risk Assessment",
+            title: "If Suicidal Ideation Is Endorsed",
             how: [
-              "Ask directly about self-harm thoughts, suicidal ideation, plans, and protective factors.",
-              "Assess risk to others if clinically relevant."
+              "Ask focused follow-up questions such as: **How often are the thoughts happening? Is there a plan in place? Do you have any firearms or other weapons?**",
+              "Clarify immediacy, intent, planning, means, and past attempts",
+              "Support the patient throughout: “Thank you for trusting me and sharing this with me.”"
             ],
-            pearl: "Clear and nonjudgmental phrasing is more important than sounding elegant."
+            pearl: "Supportive language matters, but it should not replace direct risk questions."
           },
           {
-            title: "Context and Supports",
+            title: "Risk, Warning, and Protective Factors",
             how: [
-              "Explore stressors, psychiatric history, medications, substance use, and social supports.",
-              "Summarize your sense of risk and what help the patient has around them."
+              "Assess **risk factors** (longer-term factors that predispose the patient to suicide)",
+              "Assess **warning signs** (short-term factors that may set the suicide process in motion)",
+              "Assess **protective factors** that mitigate suicide risk"
             ],
-            pearl: "OSCE stations often distinguish strong candidates by how well they explore supports and safety."
+            pearl: "A good suicide assessment does not stop at ideation; it also estimates how close the person is to acting."
+          },
+          {
+            title: "Safety Planning and Close",
+            how: [
+              "Always develop, implement, and document a **patient safety plan**",
+              "Focus on imminent risks and urgent actions to take if needed",
+              "Summarize the patient’s risk level, immediate supports, and next steps clearly"
+            ],
+            pearl: "The assessment is incomplete if you identify risk but do not state what happens next."
           }
         ],
         focus_points: [
-          "Depressive symptom review",
-          "Mania/psychosis screen if relevant",
-          "Direct suicide risk questions",
-          "Supports, substances, and function"
+          "Ask directly about suicide",
+          "Clarify plan, means, and intent",
+          "Identify risk, warning, and protective factors",
+          "Make a safety plan"
         ]
+      }
+    },
+    submodules: {
+      psychiatric_conditions: {
+        title: "Psychiatric Conditions",
+        description: "Diagnosis-focused psychiatry screens for common OSCE presentations and symptom clusters.",
+        exams: {
+          major_depressive_disorder: {
+            name: "Major Depressive Disorder",
+            description: "Core depressive symptom screen using a SIGECAPS-style structure plus impairment and rule-outs.",
+            steps: [
+              {
+                title: "Diagnostic Threshold",
+                how: [
+                  "Need **5+ symptoms**, with at least 1 of **M** or **I**, for **2 weeks** in adults or **1 week** in children",
+                  "Symptoms must cause **clinically significant distress or impairment**"
+                ],
+                pearl: "In an OSCE, it helps to state both the symptom threshold and the need for functional impairment."
+              },
+              {
+                title: "MDD Symptom Review",
+                groups: [
+                  {
+                    heading: "**M**ood decreased / depressed",
+                    how: [
+                      "Example: “How has your mood been? How long have you felt down?”"
+                    ]
+                  },
+                  {
+                    heading: "**S**leep disturbances / changes",
+                    how: [
+                      "Example: “How have you been sleeping?”"
+                    ]
+                  },
+                  {
+                    heading: "**I**nterest decreased / anhedonia",
+                    how: [
+                      "Example: “Have you been feeling less interested in activities you normally enjoy?”"
+                    ]
+                  },
+                  {
+                    heading: "**G**uilt / worthlessness",
+                    how: [
+                      "Example: “What has your self-esteem been like?”"
+                    ]
+                  },
+                  {
+                    heading: "**E**nergy decreased / fatigue",
+                    how: [
+                      "Example: “Can you describe your energy levels recently?”"
+                    ]
+                  },
+                  {
+                    heading: "**C**oncentration decreased",
+                    how: [
+                      "Example: “Have you found it challenging to think or concentrate?”"
+                    ]
+                  },
+                  {
+                    heading: "**A**ppetite changes",
+                    how: [
+                      "Example: “Have you noticed any changes in appetite?”"
+                    ]
+                  },
+                  {
+                    heading: "**P**sychomotor changes",
+                    how: [
+                      "Agitation or retardation",
+                      "Example: “Have you felt slowed down, as though you are stuck in mud? Have you had difficulties sitting still?”"
+                    ]
+                  },
+                  {
+                    heading: "**S**uicidal ideation / thoughts of death",
+                    how: [
+                      "Example: “Sometimes when people feel depressed, they may have thoughts of dying. Have you ever had thoughts like this?”"
+                    ]
+                  }
+                ],
+                pearl: "If you sound conversational rather than robotic, the mnemonic still works well in an OSCE."
+              },
+              {
+                title: "Impairment and Rule-Outs",
+                how: [
+                  "Ask about **impairment:** “How have the feelings that you have been experiencing impacted your daily routines?”",
+                  "Need to rule out other disorders including **bipolar disorder, psychotic disorders/features, other mood disorders, and bereavement**"
+                ],
+                pearl: "Always mention bipolar rule-out when discussing depressive presentations."
+              }
+            ],
+            focus_points: [
+              "5 symptoms, including mood or anhedonia",
+              "SIGECAPS-style review",
+              "Impairment",
+              "Rule out bipolar and psychosis"
+            ]
+          },
+          bipolar_disorder: {
+            name: "Bipolar Disorder",
+            description: "Screen for manic or hypomanic episodes using DIGFAST-style prompts and functional impact.",
+            steps: [
+              {
+                title: "Core Diagnostic Frame",
+                how: [
+                  "**Bipolar I (mania):** euphoria + ≥3 symptoms or irritability + ≥4 symptoms for **1 week** and causes significant impairment / necessitates hospitalization",
+                  "**Bipolar II (hypomania):** same symptom pattern for **4 days** and **not impaired**"
+                ],
+                pearl: "The duration and degree of impairment help separate mania from hypomania."
+              },
+              {
+                title: "DIGFAST Symptom Review",
+                groups: [
+                  {
+                    heading: "**D**istractibility",
+                    how: [
+                      "Example: “Do you find yourself easily distracted or off task?”"
+                    ]
+                  },
+                  {
+                    heading: "**I**mpulsivity / increased risk-taking",
+                    how: [
+                      "Example: “Sometimes when individuals are in a manic mood, they may engage in activities that are harmful to themselves or their families. Has this been the case for you?”",
+                      "Ask about speeding, gambling, unusual sexual behaviours, etc."
+                    ]
+                  },
+                  {
+                    heading: "**G**randiosity",
+                    how: [
+                      "Example: “Do you ever feel like you have special abilities, or powers?”"
+                    ]
+                  },
+                  {
+                    heading: "**F**light of ideas",
+                    how: [
+                      "Example: “Have you felt like your thoughts have been racing through your mind?”"
+                    ]
+                  },
+                  {
+                    heading: "**A**ctivity increase",
+                    how: [
+                      "Example: “Have you been more active than usual?”"
+                    ]
+                  },
+                  {
+                    heading: "**S**leep decrease / deficit",
+                    how: [
+                      "Example: “Do you feel rested with less hours of sleep compared to your usual?”"
+                    ]
+                  },
+                  {
+                    heading: "**T**alkative / pressured speech",
+                    how: [
+                      "Example: “Is it often difficult for others to share their thoughts or interrupt you?”"
+                    ]
+                  }
+                ],
+                pearl: "A manic history sounds most convincing when you ask about behaviour change and real-world consequences."
+              },
+              {
+                title: "Differentiate and Rule Out",
+                how: [
+                  "Need to differentiate **Bipolar I vs Bipolar II**",
+                  "Rule out **psychotic disorders/features** and other competing diagnoses",
+                  "Ask about **impairment:** “How have these episodes impacted different areas of your life?”"
+                ],
+                pearl: "If the symptoms sound dramatic but there is no real impairment or duration, be careful before calling it mania."
+              }
+            ],
+            focus_points: [
+              "Mania vs hypomania",
+              "DIGFAST",
+              "Risky behaviour and sleep change",
+              "Functional impairment"
+            ]
+          },
+          schizophrenia_psychotic_disorders: {
+            name: "Schizophrenia and Psychotic Disorders",
+            description: "Psychosis-focused screen covering core diagnoses, delusions, hallucinations, and positive/negative symptoms.",
+            steps: [
+              {
+                title: "Psychosis and Core Diagnostic Categories",
+                how: [
+                  "Psychosis is a symptom where an individual has difficulty telling apart what is real or not",
+                  "**Schizophrenia:** need 2+ symptoms for 1+ month (1/2 must be delusions, hallucinations, or disorganized speech)",
+                  "**Brief Psychotic Disorder:** need 1+ symptom (cannot be a negative symptom) with sudden onset and return to baseline after resolution",
+                  "**Schizophreniform Disorder:** 1+ month but less than 6 months of positive symptoms of schizophrenia and brief/no mood symptoms",
+                  "**Schizoaffective Disorder:** must meet criteria for both schizophrenia and MDD",
+                  "**Delusional Disorder:** 1+ month of 1+ delusions with brief or no hallucinations, brief or no mood symptoms, and not significantly impaired"
+                ],
+                pearl: "Naming the differential categories helps show that you can think beyond just 'psychosis yes/no.'"
+              },
+              {
+                title: "Delusions and Thought Content",
+                groups: [
+                  {
+                    heading: "Reference",
+                    how: ["Example: “Have you felt like the TV/radio has referred to you?”"]
+                  },
+                  {
+                    heading: "Persecution",
+                    how: ["Example: “Do you feel like people are out to get you?”"]
+                  },
+                  {
+                    heading: "Thought broadcasting / withdrawal / insertion",
+                    how: [
+                      "“Do you believe others can have heard your thoughts before?”",
+                      "“Has someone ever taken your thoughts out of your own head?”",
+                      "“Have your thoughts ever been placed there by someone else?”"
+                    ]
+                  },
+                  {
+                    heading: "Guilt / grandiosity / control / somatic",
+                    how: [
+                      "“Do you blame yourself for bad things happening in this world?”",
+                      "“Do you believe you have any special talents or powers?”",
+                      "“Do you believe outside forces are in control of your actions?”",
+                      "“Are you worried you have a serious illness that hasn’t been diagnosed by a doctor?”"
+                    ]
+                  }
+                ],
+                pearl: "It is often better to ask about delusions concretely than to use abstract psychiatric terms with patients."
+              },
+              {
+                title: "Hallucinations and Other Positive Symptoms",
+                how: [
+                  "Always explore the **content** of hallucinations",
+                  "**Visual:** “Do you ever see things that others cannot?”",
+                  "**Auditory:** “Do you ever hear sounds or voices that others do not?”",
+                  "**Tactile:** “Do you ever feel odd sensations on your body?”",
+                  "**Olfactory:** “Have you ever smelled something that others cannot?”",
+                  "**Gustatory:** “Have you noticed strange tastes in your mouth?”",
+                  "Also ask about **disorganized speech** and **grossly disorganized or catatonic behaviour**"
+                ],
+                pearl: "Command auditory hallucinations are especially important because of the safety implications."
+              },
+              {
+                title: "Negative and Cognitive Symptoms",
+                how: [
+                  "**Negative symptoms (5 A’s):** apathy, alogia, anhedonia, avolition, affective flattening",
+                  "Can also have cognitive symptoms including **attention** and **executive function** impairment"
+                ],
+                pearl: "Negative symptoms are easy to underscreen because they are quieter than positive symptoms."
+              }
+            ],
+            focus_points: [
+              "Psychosis differential",
+              "Delusions",
+              "Hallucinations",
+              "Disorganization",
+              "Negative symptoms"
+            ]
+          },
+          anxiety_disorders: {
+            name: "Anxiety Disorders",
+            description: "Anxiety-focused screening page covering GAD, panic, OCD, and PTSD-style symptom clusters.",
+            steps: [
+              {
+                title: "Generalized Anxiety Disorder",
+                how: [
+                  "Need **3+ symptoms for 6+ months** and causes impairment",
+                  "Excessive anxiety/worry about a number of different events/activities",
+                  "Difficulty controlling worry",
+                  "Need 3/6 symptoms more days than not: restless/on edge, tired easily, difficulty concentrating, irritable, muscle tension, difficulty falling or staying asleep",
+                  "Rule out other medical conditions, substance use, or mental disorders"
+                ],
+                pearl: "For GAD, the hard part is often proving that the worry is both excessive and hard to control."
+              },
+              {
+                title: "Social Anxiety, Panic, OCD, and PTSD",
+                groups: [
+                  {
+                    heading: "Social Anxiety Disorder",
+                    how: [
+                      "Anxieties focused on social situations"
+                    ]
+                  },
+                  {
+                    heading: "Panic Attack / Panic Disorder",
+                    how: [
+                      "Panic attack: 4+ symptoms such as sweating, trembling, dizziness, depersonalization/derealization, increased HR, chest pain, chills, nausea, tingling, choking, SOB, fear of dying/losing control/going crazy",
+                      "Panic disorder if recurrent, unprovoked panic attacks with 1+ month of worry about another attack and behaviour changes"
+                    ]
+                  },
+                  {
+                    heading: "OCD",
+                    how: [
+                      "6+ months of obsessions, compulsions, or both",
+                      "Obsessions = recurrent, persistent, intrusive, unwanted thoughts/urges/images causing distress",
+                      "Compulsions = repetitive behaviours or mental acts done to reduce anxiety/distress"
+                    ]
+                  },
+                  {
+                    heading: "PTSD",
+                    how: [
+                      "9+ symptoms for 1+ month",
+                      "Exposure to actual/threatened death, serious injury, or sexual violence",
+                      "Intrusive symptoms, avoidance, negative mood/cognition changes, and arousal/reactivity changes"
+                    ]
+                  }
+                ],
+                pearl: "Anxiety presentations can overlap a lot, so naming the dominant pattern usually matters more than listing every possibility."
+              }
+            ],
+            focus_points: [
+              "Excessive worry and control",
+              "Panic symptoms",
+              "Obsessions and compulsions",
+              "Trauma-related intrusion, avoidance, and arousal"
+            ]
+          },
+          adhd: {
+            name: "ADHD",
+            description: "Core ADHD symptom review organized into inattentive and hyperactive-impulsive clusters.",
+            steps: [
+              {
+                title: "Diagnostic Frame",
+                how: [
+                  "ADHD: need **6+ inattentive and/or hyperactivity/impulsivity symptoms** for **6 months**"
+                ],
+                pearl: "In practice, the station often becomes a symptom-cluster screen plus functional impact."
+              },
+              {
+                title: "Inattentive Symptoms",
+                how: [
+                  "Inattention to details / careless mistakes",
+                  "Not sustaining attention",
+                  "Not seeming to listen when spoken to directly",
+                  "Not following through on instructions / finishing",
+                  "Difficulty organizing tasks/activities",
+                  "Difficulty with sustained mental effort",
+                  "Losing things",
+                  "Easily distracted",
+                  "Forgetful"
+                ],
+                pearl: "If it sounds like ordinary distractibility, bring it back to duration, setting, and impairment."
+              },
+              {
+                title: "Hyperactive-Impulsive Symptoms",
+                how: [
+                  "Fidgets",
+                  "Leaves seat / situation versus expectations",
+                  "Runs about or climbs excessively",
+                  "Not quiet during leisure activities",
+                  "“On the go” / “driven by a motor”",
+                  "Talks excessively",
+                  "Blurts out answers",
+                  "Difficulty awaiting turn",
+                  "Interrupts or intrudes on others"
+                ],
+                pearl: "The behavioural examples make ADHD screening feel much more concrete than asking only general questions."
+              }
+            ],
+            focus_points: [
+              "6 symptoms for 6 months",
+              "Inattention cluster",
+              "Hyperactivity / impulsivity cluster",
+              "Functional impairment"
+            ]
+          },
+          personality_disorders: {
+            name: "Personality Disorders",
+            description: "Preliminary personality-disorder review including cluster framing and high-yield screens for avoidant, narcissistic, and borderline patterns.",
+            steps: [
+              {
+                title: "Clusters",
+                how: [
+                  "**Cluster A:** schizoid / schizotypal / paranoid",
+                  "**Cluster B:** histrionic / narcissistic / borderline / antisocial",
+                  "**Cluster C:** obsessive compulsive / avoidant / dependent"
+                ],
+                pearl: "The cluster framing helps you organize personality pathology, but the OSCE usually wants a specific pattern screen."
+              },
+              {
+                title: "High-Yield Personality Disorder Screens",
+                groups: [
+                  {
+                    heading: "Avoidant personality disorder (need 4+ symptoms)",
+                    how: [
+                      "**C** – Certainty of being liked before getting involved with people",
+                      "**R** – Rejection preoccupies thoughts in social situations",
+                      "**I** – Limited intimate relationships due to fear of rejection",
+                      "**N** – Inhibited in new interpersonal relationships",
+                      "**G** – Gets around occupational activities involving significant interpersonal contact",
+                      "**E** – Embarrassment prevents activity engagement",
+                      "**S** – Poor self-view"
+                    ]
+                  },
+                  {
+                    heading: "Narcissistic personality disorder (need 5+ symptoms)",
+                    how: [
+                      "**S** – Special",
+                      "**P** – Preoccupied with fantasies",
+                      "**E** – Envious",
+                      "**E** – Entitlement",
+                      "**E** – Excess admiration",
+                      "**C** – Conceited / grandiose",
+                      "**I** – Interpersonal exploitation",
+                      "**A** – Arrogant",
+                      "**L** – Lacks empathy"
+                    ]
+                  },
+                  {
+                    heading: "Borderline personality disorder (need 5+ symptoms)",
+                    how: [
+                      "**A** – Abandonment",
+                      "**M** – Mood instability",
+                      "**S** – Suicidal / self-harm behaviours",
+                      "**U** – Unstable and intense relationships",
+                      "**I** – Impulsivity",
+                      "**C** – Control of anger",
+                      "**I** – Identity disturbance",
+                      "**D** – Dissociative or paranoid symptoms that are stress-related / transient",
+                      "**E** – Chronic emptiness"
+                    ]
+                  }
+                ],
+                pearl: "Personality stations are often easier when you ask for patterns across time rather than isolated episodes."
+              },
+              {
+                title: "Key History Areas for Maladaptive Behaviour Patterns",
+                how: [
+                  "**Childhood:** “Did you ever witness violence in the home?”",
+                  "**School:** “When did you start school, and how long did you attend?”",
+                  "**Interpersonal relationships:** “Do you have close friends?”",
+                  "**Employment:** “What do you do for work and for how long?”",
+                  "**Housing:** “What is your living situation right now?”",
+                  "**Substance use:** “Do you drink, smoke, or use illicit drugs?”",
+                  "**Forensic:** “Have you ever been in legal trouble?”"
+                ],
+                pearl: "These stations usually reward developmental and relational context, not just symptom labels."
+              }
+            ],
+            focus_points: [
+              "Cluster A/B/C framing",
+              "Avoidant, narcissistic, and borderline screens",
+              "Patterns across time",
+              "Developmental / relational context"
+            ]
+          },
+          major_neurocognitive_disorder: {
+            name: "Major Neurocognitive Disorder",
+            description: "Screen for major neurocognitive disorder while differentiating delirium from dementia and assessing function.",
+            steps: [
+              {
+                title: "Delirium vs Dementia",
+                groups: [
+                  {
+                    heading: "Delirium",
+                    how: [
+                      "Acute onset, fluctuating course, short duration (hours to weeks)",
+                      "Attention impacted",
+                      "Impaired orientation and memory",
+                      "Disorganized thinking",
+                      "Perception changes (delusions/hallucinations)",
+                      "Disrupted sleep-wake cycles",
+                      "Due to an underlying cause such as acute illness or medication"
+                    ]
+                  },
+                  {
+                    heading: "Dementia",
+                    how: [
+                      "Insidious onset, stable/slow course, long duration (months to years)",
+                      "Impaired orientation and memory",
+                      "Impoverished thinking",
+                      "Not due to an acute underlying cause",
+                      "Perceptions and sleep-wake cycles may or may not be impacted"
+                    ]
+                  }
+                ],
+                pearl: "The quickest clinical separator is usually acute/fluctuating attention change versus slower progressive decline."
+              },
+              {
+                title: "Major Neurocognitive Disorder Criteria",
+                how: [
+                  "Significant cognitive decline in 1+ of 6 domains: **complex attention, executive function, learning and memory, language, perceptual-motor, social cognition**",
+                  "Concern may be expressed by patient, informant, or physician and identified on appropriate clinical assessment/testing",
+                  "Interferes with independence",
+                  "Not explained by delirium or another mental disorder"
+                ],
+                pearl: "In psych OSCEs, naming the domains and the effect on independence sounds much stronger than saying 'memory issues.'"
+              },
+              {
+                title: "Type, Behavioural Symptoms, and Function",
+                how: [
+                  "Assess the most likely dementia type: **AD vs vascular vs LBD vs FTD vs mixed** etc., or whether it may be caused by TBI, substance/medication use, or another medical/neuro condition",
+                  "Ask about **BPSD** (behavioural and psychological symptoms of dementia)",
+                  "Ask about function: mild = **IADL** issues; moderate = **ADL** issues; severe = fully dependent",
+                  "**ADLs = D.E.A.T.H:** dressing, eating, ambulating, toileting, hygiene"
+                ],
+                pearl: "Functional decline is often what turns cognitive symptoms into a major neurocognitive disorder diagnosis."
+              }
+            ],
+            focus_points: [
+              "Delirium vs dementia",
+              "Cognitive domains",
+              "Independence / function",
+              "Behavioural symptoms and likely subtype"
+            ]
+          }
+        }
       }
     }
   },
