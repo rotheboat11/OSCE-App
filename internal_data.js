@@ -151,7 +151,7 @@ window.INTERNAL_MODULES = {
               "Perform **orthostatic vitals** (BP and HR)",
               "Measure supine, wait 1 minute, then measure standing"
             ],
-            pearl: "sBP change of ≥20, HR change of ≥30, and severe dizziness are indicative of low volume status."
+            pearl: "An orthostatic BP drop supports orthostatic hypotension; a marked compensatory tachycardia can point toward volume depletion, but interpret it with the whole clinical picture."
           },
           {
             title: "Palpation",
@@ -419,9 +419,9 @@ window.INTERNAL_MODULES = {
               "**Palpation:** Tracheal deviation (away from tension pneumo), ↓TF",
               "**Percussion:** Hyperresonance (on impacted side)",
               "**Auscultation:** decreased breath sounds on impacted side",
-              "**Extra:** Skin (erythema nodosum)"
+              "**Extra:** Subcutaneous emphysema may be present"
             ],
-            pearl: "This is the classic high-yield pattern of tracheal shift, reduced fremitus, hyperresonance, and decreased air entry."
+            pearl: "Think decreased breath sounds, reduced fremitus, and hyperresonance first; tracheal shift points more toward tension physiology."
           },
           {
             title: "Pancoast Tumour",
