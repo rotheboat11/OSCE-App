@@ -436,9 +436,9 @@ const TEST_VIDEO_CONFIG = {
             <path d="M0,0 L8,4 L0,8 Z" fill="#7a57d1"></path>
           </marker>
         </defs>
-        <path class="sim-force-line finding trendelenburg-finding-line" d="M10 30 L30 30"></path>
+        <path class="sim-force-line finding trendelenburg-finding-line" d="M85 28 L65 28"></path>
       </svg>
-      <div class="sim-force-label finding trendelenburg-patient-label">Positive: contralateral hip drops</div>
+      <div class="sim-force-label finding trendelenburg-patient-label">Positive: hip of raised leg drops</div>
     `
   },
   "ober’s test": {
